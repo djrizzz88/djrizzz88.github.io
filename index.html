@@ -5,32 +5,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secret Emoji Messenger</title>
+    <title>Secret Emoji Messenger By Rizwan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
         
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --secondary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            --primary-gradient: linear-gradient(135deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+            --secondary-gradient: linear-gradient(135deg, #43CBFF 0%, #9708CC 100%);
+            --accent-color: #FF6A88;
+            --accent-hover: #FF99AC;
         }
         
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Quicksand', sans-serif;
             background: var(--primary-gradient);
             min-height: 100vh;
             transition: all 0.3s ease;
         }
         
         body.dark-mode {
-            --primary-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --primary-gradient: linear-gradient(135deg, #3B2667 0%, #BC78EC 100%);
+            --secondary-gradient: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%);
+            --accent-color: #BC78EC;
+            --accent-hover: #9D50BB;
         }
         
         .emoji-bg {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
         }
         
         .dark-mode .emoji-bg {
@@ -40,12 +46,14 @@
         
         .tab-active {
             background-color: rgba(255, 255, 255, 0.25);
-            border-bottom: 3px solid #fff;
+            border-bottom: 3px solid var(--accent-color);
+            color: #fff;
+            font-weight: 600;
         }
         
         .dark-mode .tab-active {
             background-color: rgba(30, 41, 59, 0.6);
-            border-bottom: 3px solid #94a3b8;
+            border-bottom: 3px solid var(--accent-color);
         }
         
         .custom-shadow {
@@ -131,7 +139,7 @@
         .password-strength-meter {
             height: 5px;
             width: 100%;
-            background-color: #ddd;
+            background-color: rgba(255, 255, 255, 0.2);
             border-radius: 3px;
             margin-top: 5px;
         }
@@ -157,53 +165,129 @@
             background-color: #34d399;
         }
         
-        /* Ad placeholders */
-        .ad-placeholder {
-            background: linear-gradient(45deg, #f3f4f6 25%, #e5e7eb 25%, #e5e7eb 50%, #f3f4f6 50%, #f3f4f6 75%, #e5e7eb 75%);
-            background-size: 20px 20px;
-            border: 2px dashed #d1d5db;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6b7280;
-            font-weight: 500;
-            text-align: center;
-            border-radius: 0.5rem;
+        /* Fun button styles */
+        .fun-button {
+            background: var(--secondary-gradient);
+            color: white;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
             overflow: hidden;
         }
         
-        .dark-mode .ad-placeholder {
-            background: linear-gradient(45deg, #1f2937 25%, #111827 25%, #111827 50%, #1f2937 50%, #1f2937 75%, #111827 75%);
-            border-color: #4b5563;
-            color: #9ca3af;
+        .fun-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .fun-button:active {
+            transform: translateY(1px);
+        }
+        
+        .fun-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+            clip-path: polygon(0 0, 100% 0, 100% 70%, 0 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .fun-button:hover::after {
+            transform: translateY(-10px);
+        }
+        
+        /* Fun card styles */
+        .fun-card {
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode .fun-card {
+            background: rgba(30, 41, 59, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .fun-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Emoji animation for background */
+        .emoji-float {
+            position: absolute;
+            opacity: 0.2;
+            animation: float 15s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.2;
+            }
+            90% {
+                opacity: 0.2;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 10px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-hover);
         }
     </style>
 </head>
 <body class="p-0 m-0">
-    <!-- Header Ad -->
-    <div class="w-full h-24 ad-placeholder">
-        <div>
-            <i class="fas fa-ad text-2xl mb-1"></i>
-            <p>Advertisement Banner</p>
-        </div>
+    <!-- Floating background emojis -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="emoji-float text-4xl" style="left: 5%; animation-delay: 0s;">😀</div>
+        <div class="emoji-float text-5xl" style="left: 15%; animation-delay: 2s;">🤣</div>
+        <div class="emoji-float text-3xl" style="left: 25%; animation-delay: 5s;">😍</div>
+        <div class="emoji-float text-6xl" style="left: 40%; animation-delay: 1s;">😎</div>
+        <div class="emoji-float text-4xl" style="left: 60%; animation-delay: 7s;">🥳</div>
+        <div class="emoji-float text-5xl" style="left: 75%; animation-delay: 3s;">🌈</div>
+        <div class="emoji-float text-3xl" style="left: 85%; animation-delay: 6s;">✨</div>
+        <div class="emoji-float text-4xl" style="left: 95%; animation-delay: 4s;">🔒</div>
     </div>
     
+    <!-- Main Content -->
     <div class="flex min-h-screen">
-        <!-- Left Side Ad -->
-        <div class="hidden lg:block lg:w-48 xl:w-64 ad-placeholder">
-            <div>
-                <i class="fas fa-ad text-2xl mb-1"></i>
-                <p>Sidebar Ad</p>
-            </div>
-        </div>
-        
-        <!-- Main Content -->
-        <div class="flex-1 p-4">
+        <div class="w-full p-4">
             <div class="container mx-auto max-w-4xl py-8">
                 <div class="flex justify-between items-center mb-8">
                     <div>
-                        <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">Secret Emoji Messenger</h1>
-                        <p class="text-white text-opacity-80 text-lg">Convert text to emoji for secret conversations!</p>
+                        <h1 class="text-4xl md:text-5xl font-bold text-white mb-2 drop-shadow-lg">Secret Emoji Messenger</h1>
+                        <p class="text-white text-opacity-90 text-lg">Convert text to emoji for secret conversations! ✨</p>
                     </div>
                     <div>
                         <button id="darkModeToggle" class="bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300">
@@ -212,7 +296,7 @@
                     </div>
                 </div>
                 
-                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 custom-shadow">
+                <div class="fun-card p-6 custom-shadow">
                     <!-- Tabs -->
                     <div class="flex mb-6 border-b border-gray-200 dark:border-gray-700 overflow-x-auto">
                         <button id="encodeTab" class="tab-active px-6 py-3 rounded-t-lg text-lg font-medium flex-1 transition-all duration-300 whitespace-nowrap">
@@ -239,17 +323,17 @@
                         
                         <!-- Password Input (conditionally shown) -->
                         <div id="passwordInputArea" class="hidden">
-                            <div class="bg-purple-50 dark:bg-gray-700 border border-purple-200 dark:border-purple-800 rounded-lg p-4 mb-4">
+                            <div class="bg-pink-50 dark:bg-purple-900 border border-pink-200 dark:border-purple-700 rounded-lg p-4 mb-4">
                                 <div class="flex items-center mb-2">
-                                    <svg class="w-5 h-5 text-purple-600 dark:text-purple-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <svg class="w-5 h-5 text-pink-600 dark:text-pink-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                     </svg>
-                                    <span class="font-medium text-purple-800 dark:text-purple-300">Password Protection</span>
+                                    <span class="font-medium text-pink-800 dark:text-pink-300">Password Protection</span>
                                 </div>
-                                <p class="text-sm text-purple-700 dark:text-purple-300 mb-3">
+                                <p class="text-sm text-pink-700 dark:text-pink-300 mb-3">
                                     Add a password that will be required to decode this message. Only share this password with your intended recipient.
                                 </p>
-                                <input type="password" id="messagePassword" class="w-full p-3 border border-purple-300 dark:border-purple-600 dark:bg-gray-800 dark:text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Enter password for this message">
+                                <input type="password" id="messagePassword" class="w-full p-3 border border-pink-300 dark:border-purple-600 dark:bg-gray-800 dark:text-white rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent" placeholder="Enter password for this message">
                                 
                                 <!-- Password strength meter -->
                                 <div class="mt-2">
@@ -267,12 +351,12 @@
                         <!-- Input Area -->
                         <div>
                             <label for="inputText" class="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2" id="inputLabel">Enter your text:</label>
-                            <textarea id="inputText" class="w-full h-32 p-4 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none" placeholder="Type your message here..."></textarea>
+                            <textarea id="inputText" class="w-full h-32 p-4 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent resize-none" placeholder="Type your message here..."></textarea>
                         </div>
                         
                         <!-- Action Button -->
                         <div class="text-center">
-                            <button id="convertBtn" class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-8 py-3 rounded-lg font-medium text-lg transition-all duration-300 pulse-animation">
+                            <button id="convertBtn" class="fun-button px-8 py-3 text-lg pulse-animation">
                                 Convert to Emoji
                             </button>
                         </div>
@@ -298,7 +382,7 @@
                     <div id="decodeSection" class="space-y-6 hidden">
                         <!-- Password Input for Decoding -->
                         <div id="decodePasswordArea">
-                            <div class="bg-blue-50 dark:bg-gray-700 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-4">
+                            <div class="bg-blue-50 dark:bg-blue-900 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-4">
                                 <div class="flex items-center mb-2">
                                     <svg class="w-5 h-5 text-blue-600 dark:text-blue-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
@@ -320,7 +404,7 @@
                         
                         <!-- Action Button -->
                         <div class="text-center">
-                            <button id="decodeBtn" class="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-3 rounded-lg font-medium text-lg transition-all duration-300">
+                            <button id="decodeBtn" class="fun-button px-8 py-3 text-lg">
                                 Decode Message
                             </button>
                         </div>
@@ -344,7 +428,7 @@
                         <div class="bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
                             <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-100">Message History</h2>
                             
-                            <div id="historyList" class="space-y-4">
+                            <div id="historyList" class="space-y-4 max-h-96 overflow-y-auto pr-2">
                                 <!-- History items will be added here dynamically -->
                                 <div class="text-center text-gray-500 dark:text-gray-400 py-8" id="noHistoryMessage">
                                     <svg class="w-12 h-12 mx-auto text-gray-400 dark:text-gray-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -365,14 +449,14 @@
                     
                     <!-- About Section -->
                     <div id="aboutSection" class="space-y-6 hidden">
-                        <div class="emoji-bg rounded-lg p-6">
-                            <h2 class="text-2xl font-bold mb-4 text-purple-800 dark:text-purple-300">How Secret Emoji Messenger Works</h2>
+                        <div class="emoji-bg p-6">
+                            <h2 class="text-2xl font-bold mb-4 text-pink-600 dark:text-pink-300">How Secret Emoji Messenger Works</h2>
                             <p class="mb-4 dark:text-gray-200">This app uses a simple substitution cipher to convert your text messages into emoji sequences.</p>
                             
-                            <h3 class="text-xl font-semibold mb-2 text-purple-700 dark:text-purple-400">Text to Emoji:</h3>
+                            <h3 class="text-xl font-semibold mb-2 text-pink-500 dark:text-pink-400">Text to Emoji:</h3>
                             <p class="mb-4 dark:text-gray-200">Each letter, number, and common symbol is mapped to a specific emoji. For example, "hello" might become "🤣😊😙😙😍".</p>
                             
-                            <h3 class="text-xl font-semibold mb-2 text-purple-700 dark:text-purple-400">Password Protection:</h3>
+                            <h3 class="text-xl font-semibold mb-2 text-pink-500 dark:text-pink-400">Password Protection:</h3>
                             <p class="mb-4 dark:text-gray-200">When you enable password protection, your message gets an extra layer of encryption. The emoji mapping is scrambled based on your password, so only someone with the correct password can decode it.</p>
                             
                             <div class="bg-yellow-100 dark:bg-yellow-900 border-l-4 border-yellow-500 p-4 rounded">
@@ -384,33 +468,17 @@
                         
                         <div class="text-center">
                             <h3 class="text-xl font-semibold mb-4 dark:text-gray-200">Ready to create your secret message?</h3>
-                            <button id="backToEncoderBtn" class="bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white px-8 py-3 rounded-lg font-medium text-lg transition-all duration-300">
+                            <button id="backToEncoderBtn" class="fun-button px-8 py-3 text-lg">
                                 Start Encoding
                             </button>
                         </div>
                     </div>
                 </div>
                 
-                <div class="text-center mt-6 text-white text-opacity-70">
-                    <p>Designed By Rizwan With Love 🌹</p>
+                <div class="text-center mt-6 text-white text-opacity-90">
+                    <p>Share secret messages with friends! 🤫</p>
                 </div>
             </div>
-        </div>
-        
-        <!-- Right Side Ad -->
-        <div class="hidden lg:block lg:w-48 xl:w-64 ad-placeholder">
-            <div>
-                <i class="fas fa-ad text-2xl mb-1"></i>
-                <p>Sidebar Ad</p>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Footer Ad -->
-    <div class="w-full h-24 ad-placeholder">
-        <div>
-            <i class="fas fa-ad text-2xl mb-1"></i>
-            <p>Advertisement Banner</p>
         </div>
     </div>
 
@@ -493,6 +561,25 @@
             
             // Set up event listeners
             setupEventListeners();
+            
+            // Create floating emojis
+            createFloatingEmojis();
+        }
+        
+        // Create floating background emojis
+        function createFloatingEmojis() {
+            const container = document.querySelector('.fixed');
+            const emojis = ['😀', '🤣', '😍', '😎', '🥳', '🌈', '✨', '🔒', '💖', '🦄', '🎉', '🎈'];
+            
+            for (let i = 0; i < 15; i++) {
+                const emoji = document.createElement('div');
+                emoji.className = 'emoji-float';
+                emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.style.left = `${Math.random() * 100}%`;
+                emoji.style.animationDelay = `${Math.random() * 10}s`;
+                emoji.style.fontSize = `${Math.random() * 3 + 1}rem`;
+                container.appendChild(emoji);
+            }
         }
         
         // Set up all event listeners
@@ -893,10 +980,10 @@
                     <div class="flex justify-between items-start mb-2">
                         <span class="text-sm text-gray-500 dark:text-gray-400">${formattedDate}</span>
                         <div class="flex space-x-2">
-                            <button class="history-load-btn text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 text-sm" data-index="${index}" data-mode="encode">
+                            <button class="history-load-btn text-pink-500 hover:text-pink-700 dark:text-pink-400 dark:hover:text-pink-300 text-sm" data-index="${index}" data-mode="encode">
                                 <i class="fas fa-edit"></i> Edit
                             </button>
-                            <button class="history-decode-btn text-green-500 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 text-sm" data-index="${index}">
+                            <button class="history-decode-btn text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 text-sm" data-index="${index}">
                                 <i class="fas fa-unlock"></i> Decode
                             </button>
                             <button class="history-delete-btn text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 text-sm" data-index="${index}">
@@ -1000,5 +1087,5 @@
         // Initialize the app
         init();
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'94a99d1750019431',t:'MTc0OTA2MzAwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'94eb277cf7c2ea16',t:'MTc0OTc1MDI0Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
