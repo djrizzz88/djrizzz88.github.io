@@ -1,139 +1,196 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Rizwan Ali | AI Researcher | SignalGPT</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- SEO -->
-  <meta name="description" content="Rizwan Ali — Independent AI researcher. Author of SignalGPT, a deployable and interpretable AI framework for 24-hour directional market signal prediction (Zenodo DOI: 10.5281/zenodo.18226653)." />
-  <meta name="keywords" content="Rizwan Ali, SignalGPT, AI Researcher, Machine Learning, Explainable AI, Financial Time Series, Zenodo DOI, ORCID" />
-  <meta name="author" content="Rizwan Ali" />
-  <link rel="canonical" href="https://djrizzz88.github.io/" />
+<title>Rizwan Ali | AI Researcher | Explainable AI & SignalGPT</title>
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Rizwan Ali | AI Researcher | SignalGPT" />
-  <meta property="og:description" content="Author of SignalGPT (Zenodo DOI: 10.5281/zenodo.18226653). Research interests: machine learning, explainable AI, financial time series, deployable AI systems." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://djrizzz88.github.io/" />
+<meta name="description" content="Rizwan Ali is an independent AI researcher working on explainable AI, machine learning, and deployable AI systems. Author of SignalGPT and explainable fraud detection research." />
+<meta name="keywords" content="Rizwan Ali, AI Researcher, Explainable AI, Machine Learning, SignalGPT, Credit Card Fraud Detection, XGBoost, SHAP" />
+<meta name="author" content="Rizwan Ali" />
 
-  <style>
-    body { font-family: Arial, Helvetica, sans-serif; margin: 0; background: #fafafa; color: #111; }
-    .wrap { max-width: 920px; margin: 0 auto; padding: 28px 18px; }
-    .card { background: #fff; border: 1px solid #eee; border-radius: 14px; padding: 22px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); }
-    h1 { margin: 0 0 6px; font-size: 28px; }
-    .sub { margin: 0 0 18px; color: #444; line-height: 1.5; }
-    .grid { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 16px; }
-    @media (min-width: 820px) { .grid { grid-template-columns: 1fr 1fr; } }
-    .item { border: 1px solid #f0f0f0; border-radius: 12px; padding: 16px; background: #fcfcfc; }
-    .item h2 { margin: 0 0 8px; font-size: 16px; }
-    .item p { margin: 0 0 10px; color: #333; line-height: 1.5; }
-    a { color: #0b57d0; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .pill { display: inline-block; padding: 6px 10px; margin: 4px 6px 0 0; border: 1px solid #e6e6e6; border-radius: 999px; background: #fff; color: #333; font-size: 13px; }
-    .muted { color: #555; font-size: 14px; }
-    .footer { margin-top: 18px; color: #666; font-size: 13px; }
-    .btnrow a { display: inline-block; padding: 10px 12px; margin: 6px 10px 0 0; border: 1px solid #e6e6e6; border-radius: 10px; background: #fff; }
-    .doi { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
-  </style>
+<link rel="canonical" href="https://djrizzz88.github.io/" />
 
-  <!-- Structured data to help Google understand "you" -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Rizwan Ali",
-    "url": "https://djrizzz88.github.io/",
-    "sameAs": [
-      "https://orcid.org/0009-0007-2602-3349",
-      "https://github.com/djrizzz88/signalgpt-backend",
-      "https://github.com/djrizzz88/signalgpt-frontend",
-      "https://djrizzz88.github.io/signalgpt-frontend/",
-      "https://doi.org/10.5281/zenodo.18226653"
-    ],
-    "jobTitle": "Independent Researcher",
-    "affiliation": {
-      "@type": "CollegeOrUniversity",
-      "name": "Glasgow Caledonian University"
-    },
-    "knowsAbout": [
-      "Artificial Intelligence",
-      "Machine Learning",
-      "Explainable AI",
-      "Financial Time Series",
-      "Deployable AI Systems"
-    ]
-  }
-  </script>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  color: #1a1a1a;
+}
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px 20px;
+}
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+}
+.header {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e0e0e0;
+}
+h1 {
+  margin: 0;
+  font-size: 30px;
+}
+.subtitle {
+  margin-top: 6px;
+  color: #555;
+}
+.section {
+  margin-top: 30px;
+}
+.section h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.pub {
+  margin-bottom: 16px;
+}
+.pub-title {
+  font-weight: bold;
+}
+.links a {
+  display: inline-block;
+  margin-right: 12px;
+  margin-top: 6px;
+  color: #0b57d0;
+  text-decoration: none;
+}
+.links a:hover {
+  text-decoration: underline;
+}
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  margin: 6px 6px 0 0;
+  border-radius: 999px;
+  background: #eef2ff;
+  font-size: 13px;
+}
+.footer {
+  margin-top: 30px;
+  font-size: 13px;
+  color: #666;
+}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rizwan Ali",
+  "url": "https://djrizzz88.github.io/",
+  "jobTitle": "Independent Researcher",
+  "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name": "Glasgow Caledonian University"
+  },
+  "sameAs": [
+    "https://orcid.org/0009-0007-2602-3349",
+    "https://doi.org/10.5281/zenodo.18226653",
+    "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6011735",
+    "https://github.com/djrizzz88/signalgpt-backend",
+    "https://github.com/djrizzz88/signalgpt-frontend",
+    "https://djrizzz88.github.io/signalgpt-frontend/"
+  ],
+  "knowsAbout": [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Explainable AI",
+    "Credit Card Fraud Detection",
+    "Financial Time Series"
+  ]
+}
+</script>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="card">
-      <h1>Rizwan Ali</h1>
-      <p class="sub">
-        Independent Researcher (AI/ML). Interests: machine learning, explainable AI, financial time-series analytics, and deployable AI systems.
-      </p>
+<div class="container">
+  <div class="card">
 
-      <p class="muted">
-        Featured work: <strong>SignalGPT</strong> — a deployable and interpretable AI framework for 24-hour directional market signal prediction.
-        Zenodo DOI: <span class="doi">10.5281/zenodo.18226653</span>
-      </p>
-
-      <div class="btnrow">
-        <a href="https://doi.org/10.5281/zenodo.18226653" target="_blank" rel="noopener">Zenodo Paper (DOI)</a>
-        <a href="https://orcid.org/0009-0007-2602-3349" target="_blank" rel="noopener">ORCID Profile</a>
-        <a href="https://scholar.google.com/citations?hl=en&user=clbesqkAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
-      </div>
-
-      <div style="margin-top:14px;">
-        <span class="pill">Machine Learning</span>
-        <span class="pill">Explainable AI</span>
-        <span class="pill">Financial Time Series</span>
-        <span class="pill">Deployable AI</span>
-        <span class="pill">Probabilistic Signals</span>
-      </div>
-
-      <div class="grid">
-        <div class="item">
-          <h2>Publication</h2>
-          <p>
-            <strong>SignalGPT: A Deployable and Interpretable AI Framework for 24-Hour Directional Market Signal Prediction</strong><br/>
-            Preprint (2026). DOI: <a class="doi" href="https://doi.org/10.5281/zenodo.18226653" target="_blank" rel="noopener">10.5281/zenodo.18226653</a>
-          </p>
+    <div class="header">
+      <img src="rizwan.JPG" alt="Rizwan Ali profile photo" class="profile-pic">
+      <div>
+        <h1>Rizwan Ali</h1>
+        <div class="subtitle">
+          Independent AI Researcher<br>
+          Explainable AI • Machine Learning • Deployable AI Systems
         </div>
-
-        <div class="item">
-          <h2>Live Demonstration</h2>
-          <p>
-            Web interface for 24-hour market signals:
-            <a href="https://djrizzz88.github.io/signalgpt-frontend/" target="_blank" rel="noopener">
-              https://djrizzz88.github.io/signalgpt-frontend/
-            </a>
-          </p>
-        </div>
-
-        <div class="item">
-          <h2>Open-Source Repositories</h2>
-          <p>
-            Backend: <a href="https://github.com/djrizzz88/signalgpt-backend" target="_blank" rel="noopener">signalgpt-backend</a><br/>
-            Frontend: <a href="https://github.com/djrizzz88/signalgpt-frontend" target="_blank" rel="noopener">signalgpt-frontend</a>
-          </p>
-        </div>
-
-        <div class="item">
-          <h2>Contact</h2>
-          <p>
-            Email: <a href="mailto:rali314@caledonian.ac.uk">rali314@caledonian.ac.uk</a><br/>
-            ORCID: <a href="https://orcid.org/0009-0007-2602-3349" target="_blank" rel="noopener">0009-0007-2602-3349</a>
-          </p>
-        </div>
-      </div>
-
-      <div class="footer">
-        Note: This page consolidates research identity links (DOI, ORCID, repositories, and public demo) to support discoverability and reproducibility.
       </div>
     </div>
+
+    <div class="section">
+      <h2>About</h2>
+      <p>
+        I am an independent AI researcher with a focus on explainable machine learning,
+        financial risk modelling, and deployable AI systems. My work emphasises
+        transparency, reproducibility, and real-world applicability.
+      </p>
+      <div class="links">
+        <a href="https://orcid.org/0009-0007-2602-3349" target="_blank">ORCID</a>
+        <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=clbesqkAAAAJ" target="_blank">Google Scholar</a>
+        <a href="mailto:rali314@caledonian.ac.uk">Email</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Publications</h2>
+
+      <div class="pub">
+        <div class="pub-title">
+          SignalGPT: A Deployable and Interpretable AI Framework for 24-Hour Directional Market Signal Prediction
+        </div>
+        <div>Preprint, Zenodo (2026)</div>
+        <div class="links">
+          <a href="https://doi.org/10.5281/zenodo.18226653" target="_blank">DOI</a>
+          <a href="https://djrizzz88.github.io/signalgpt-frontend/" target="_blank">Live Demo</a>
+          <a href="https://github.com/djrizzz88/signalgpt-backend" target="_blank">Backend</a>
+          <a href="https://github.com/djrizzz88/signalgpt-frontend" target="_blank">Frontend</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <div class="pub-title">
+          Explainable AI Framework for Credit Card Fraud Detection Using XGBoost, Deep Neural Networks and SHAP-Based Interpretability
+        </div>
+        <div>Working Paper, SSRN (2026)</div>
+        <div class="links">
+          <a href="https://doi.org/10.2139/ssrn.6011735" target="_blank">DOI</a>
+          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6011735" target="_blank">SSRN</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="section">
+      <h2>Research Interests</h2>
+      <span class="badge">Explainable AI</span>
+      <span class="badge">Machine Learning</span>
+      <span class="badge">Fraud Detection</span>
+      <span class="badge">Financial Time Series</span>
+      <span class="badge">Responsible AI</span>
+    </div>
+
+    <div class="footer">
+      © 2026 Rizwan Ali • This page consolidates verified research outputs and public demonstrations.
+    </div>
+
   </div>
+</div>
 </body>
 </html>
