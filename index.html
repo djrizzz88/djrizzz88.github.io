@@ -1,197 +1,568 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta name="google-site-verification" content="N5arwSApkeja3igbqF5BjLDPD55hgTJopp-fQvbG4HY" />
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en" class="h-full">
+ <head>
+   <meta name="google-site-verification" content="N5arwSApkeja3igbqF5BjLDPD55hgTJopp-fQvbG4HY" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rizwan Ali | Independent AI Researcher</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0c4a6e 100%);
+    }
+    
+    .gradient-section {
+      background: linear-gradient(180deg, #0f172a 0%, #1e1b4b 100%);
+    }
+    
+    .card-glow {
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .card-glow:hover {
+      box-shadow: 0 8px 30px rgba(56, 189, 248, 0.2);
+      transform: translateY(-2px);
+    }
+    
+    .profile-glow {
+      box-shadow: 0 0 40px rgba(56, 189, 248, 0.3), 0 0 80px rgba(14, 165, 233, 0.2);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
+    }
+    
+    .btn-secondary {
+      border: 2px solid #06b6d4;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      background-color: rgba(6, 182, 212, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    .interest-chip {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .interest-chip:hover {
+      background: linear-gradient(135deg, rgba(14, 165, 233, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%);
+      border-color: rgba(56, 189, 248, 0.5);
+      transform: translateY(-2px);
+    }
+    
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #0ea5e9, #06b6d4);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .status-badge {
+      animation: pulse-soft 3s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-soft {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    
+    .social-icon {
+      transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+      transform: scale(1.1);
+      color: #06b6d4;
+    }
+    
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.3), transparent);
+    }
+    
+    .floating-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    .backdrop-blur-custom {
+      backdrop-filter: blur(10px);
+      background-color: rgba(15, 23, 42, 0.9);
+    }
+    
+    .grid-pattern {
+      background-image: 
+        linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+    
+    .publication-card {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 27, 75, 0.8) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+    
+    .project-icon-bg {
+      background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full gradient-bg text-slate-200">
+  <div id="app-wrapper" class="w-full h-full overflow-auto"><!-- Navigation -->
+   <nav class="sticky top-0 z-50 backdrop-blur-custom border-b border-cyan-900/30">
+    <div class="max-w-6xl mx-auto px-6 py-4">
+     <div class="flex items-center justify-between"><a href="#hero" class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">RA</a>
+      <div class="hidden md:flex items-center gap-8 text-sm"><a href="#about" class="nav-link text-slate-300 hover:text-cyan-400">About</a> <a href="#publications" class="nav-link text-slate-300 hover:text-cyan-400">Publications</a> <a href="#projects" class="nav-link text-slate-300 hover:text-cyan-400">Projects</a> <a href="#interests" class="nav-link text-slate-300 hover:text-cyan-400">Research</a> <a href="#contact" class="nav-link text-slate-300 hover:text-cyan-400">Contact</a>
+      </div><button id="mobile-menu-btn" class="md:hidden p-2 text-slate-300 hover:text-cyan-400">
+       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+       </svg></button>
+     </div><!-- Mobile Menu -->
+     <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2 border-t border-cyan-900/30 pt-4">
+      <div class="flex flex-col gap-3 text-sm"><a href="#about" class="text-slate-300 hover:text-cyan-400">About</a> <a href="#publications" class="text-slate-300 hover:text-cyan-400">Publications</a> <a href="#projects" class="text-slate-300 hover:text-cyan-400">Projects</a> <a href="#interests" class="text-slate-300 hover:text-cyan-400">Research</a> <a href="#contact" class="text-slate-300 hover:text-cyan-400">Contact</a>
+      </div>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section id="hero" class="relative py-24 md:py-32 px-6 overflow-hidden grid-pattern"><!-- Decorative elements -->
+    <div class="absolute top-20 right-10 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 left-10 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
+    <div class="relative max-w-6xl mx-auto">
+     <div class="flex flex-col md:flex-row items-center gap-12"><!-- Profile Photo -->
+      <div class="flex-shrink-0 floating-animation">
+       <div class="w-40 h-40 md:w-48 md:h-48 rounded-full profile-glow border-4 border-cyan-500/30 flex items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900">
+        <img src="rizwan.JPG" alt="Rizwan Ali" class="w-full h-full rounded-full object-cover" />
 
-<title>Rizwan Ali | AI Researcher | Explainable AI & SignalGPT</title>
-
-<meta name="description" content="Rizwan Ali is an independent AI researcher working on explainable AI, machine learning, and deployable AI systems. Author of SignalGPT and explainable fraud detection research." />
-<meta name="keywords" content="Rizwan Ali, AI Researcher, Explainable AI, Machine Learning, SignalGPT, Credit Card Fraud Detection, XGBoost, SHAP" />
-<meta name="author" content="Rizwan Ali" />
-
-<link rel="canonical" href="https://rizwanali.uk/" />
-
-<style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f5f7fa;
-  margin: 0;
-  color: #1a1a1a;
-}
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 30px 20px;
-}
-.card {
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 28px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-}
-.header {
-  display: flex;
-  gap: 22px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.profile-pic {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #e0e0e0;
-}
-h1 {
-  margin: 0;
-  font-size: 30px;
-}
-.subtitle {
-  margin-top: 6px;
-  color: #555;
-}
-.section {
-  margin-top: 30px;
-}
-.section h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
-}
-.pub {
-  margin-bottom: 16px;
-}
-.pub-title {
-  font-weight: bold;
-}
-.links a {
-  display: inline-block;
-  margin-right: 12px;
-  margin-top: 6px;
-  color: #0b57d0;
-  text-decoration: none;
-}
-.links a:hover {
-  text-decoration: underline;
-}
-.badge {
-  display: inline-block;
-  padding: 6px 10px;
-  margin: 6px 6px 0 0;
-  border-radius: 999px;
-  background: #eef2ff;
-  font-size: 13px;
-}
-.footer {
-  margin-top: 30px;
-  font-size: 13px;
-  color: #666;
-}
-</style>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Rizwan Ali",
-  "url": "https://djrizzz88.github.io/",
-  "jobTitle": "Independent Researcher",
-  "affiliation": {
-    "@type": "CollegeOrUniversity",
-    "name": "Glasgow Caledonian University"
-  },
-  "sameAs": [
-    "https://orcid.org/0009-0007-2602-3349",
-    "https://doi.org/10.5281/zenodo.18226653",
-    "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6011735",
-    "https://github.com/djrizzz88/signalgpt-backend",
-    "https://github.com/djrizzz88/signalgpt-frontend",
-    "https://djrizzz88.github.io/signalgpt-frontend/"
-  ],
-  "knowsAbout": [
-    "Artificial Intelligence",
-    "Machine Learning",
-    "Explainable AI",
-    "Credit Card Fraud Detection",
-    "Financial Time Series"
-  ]
-}
-</script>
-</head>
-
-<body>
-<div class="container">
-  <div class="card">
-
-    <div class="header">
-      <img src="rizwan.JPG" alt="Rizwan Ali profile photo" class="profile-pic">
+       </div>
+      </div><!-- Hero Content -->
+      <div class="flex-1 text-center md:text-left">
+       <h1 id="hero-name" class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3">Rizwan Ali</h1>
+       <p id="hero-title" class="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 font-semibold mb-6">Independent AI Researcher</p>
+       <p id="hero-statement" class="text-lg md:text-xl text-slate-300 leading-relaxed mb-8 max-w-2xl">Building interpretable, deployable AI systems for real-world decision-making.</p>
+       <div class="flex flex-wrap justify-center md:justify-start gap-4"><a href="#publications" class="btn-primary px-6 py-3 rounded-lg font-semibold text-white inline-flex items-center gap-2"> View Publications 
+         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+         </svg></a> <a href="#projects" class="btn-secondary px-6 py-3 rounded-lg font-semibold text-cyan-400 inline-flex items-center gap-2"> Live Projects 
+         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+         </svg></a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section id="about" class="py-20 px-6 gradient-section">
+    <div class="max-w-6xl mx-auto">
+     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div>
-        <h1>Rizwan Ali</h1>
-        <div class="subtitle">
-          Independent AI Researcher<br>
-          Explainable AI • Machine Learning • Deployable AI Systems
+       <h2 id="about-heading" class="text-3xl md:text-4xl font-bold text-white mb-6">About Me</h2>
+       <p id="about-paragraph" class="text-slate-300 leading-relaxed text-lg mb-8">Rizwan Ali is an independent AI researcher specialising in explainable artificial intelligence, machine learning systems, and financial risk modelling. His work bridges the gap between complex AI models and practical, interpretable solutions that can be deployed in real-world environments. With a focus on transparency, trust, and responsible AI development, he addresses critical challenges in fraud detection, market prediction, and risk assessment through rigorous, reproducible research.</p>
+       <div class="flex flex-wrap gap-3">
+        <div class="flex items-center gap-2 bg-cyan-500/10 border border-cyan-500/30 rounded-lg px-4 py-2">
+         <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+         </svg><span class="text-sm text-cyan-300 font-medium">Explainability</span>
         </div>
+        <div class="flex items-center gap-2 bg-blue-500/10 border border-blue-500/30 rounded-lg px-4 py-2">
+         <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+         </svg><span class="text-sm text-blue-300 font-medium">Deployment</span>
+        </div>
+        <div class="flex items-center gap-2 bg-purple-500/10 border border-purple-500/30 rounded-lg px-4 py-2">
+         <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+         </svg><span class="text-sm text-purple-300 font-medium">Trust</span>
+        </div>
+       </div>
       </div>
-    </div>
-
-    <div class="section">
-      <h2>About</h2>
-      <p>
-        I am an independent AI researcher with a focus on explainable machine learning,
-        financial risk modelling, and deployable AI systems. My work emphasises
-        transparency, reproducibility, and real-world applicability.
-      </p>
-      <div class="links">
-        <a href="https://orcid.org/0009-0007-2602-3349" target="_blank">ORCID</a>
-        <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=clbesqkAAAAJ" target="_blank">Google Scholar</a>
-        <a href="mailto:rali314@caledonian.ac.uk">Email</a>
+      <div class="relative">
+       <div class="aspect-square rounded-2xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 flex items-center justify-center p-8">
+        <svg class="w-full h-full text-cyan-400/30" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+       </div>
       </div>
+     </div>
     </div>
-
-    <div class="section">
-      <h2>Publications</h2>
-
-      <div class="pub">
-        <div class="pub-title">
-          SignalGPT: A Deployable and Interpretable AI Framework for 24-Hour Directional Market Signal Prediction
+   </section>
+   <div class="section-divider max-w-6xl mx-auto"></div><!-- Publications Section -->
+   <section id="publications" class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+     <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Publications</h2>
+     <div class="grid gap-6"><!-- Publication 1 -->
+      <article class="publication-card card-glow rounded-xl p-6 md:p-8">
+       <div class="flex flex-col gap-4">
+        <div class="flex items-start justify-between gap-4"><span class="status-badge inline-flex items-center px-3 py-1 text-xs font-semibold bg-amber-500/20 text-amber-300 rounded-full border border-amber-500/40"> Working Paper </span> <span class="text-xs text-slate-400">2026</span>
         </div>
-        <div>Preprint, Zenodo (2026)</div>
-        <div class="links">
-          <a href="https://doi.org/10.5281/zenodo.18226653" target="_blank">DOI</a>
-          <a href="https://djrizzz88.github.io/signalgpt-frontend/" target="_blank">Live Demo</a>
-          <a href="https://github.com/djrizzz88/signalgpt-backend" target="_blank">Backend</a>
-          <a href="https://github.com/djrizzz88/signalgpt-frontend" target="_blank">Frontend</a>
+        <h3 class="text-xl md:text-2xl font-bold text-white leading-snug">Explainable AI Framework for Credit Card Fraud Detection Using XGBoost, Deep Neural Networks and SHAP-Based Interpretability</h3>
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-400"><span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+          </svg> SSRN </span> <span class="hidden sm:inline text-slate-600">•</span> <a href="https://doi.org/10.2139/ssrn.6011735" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 hover:underline flex items-center gap-1"> DOI: 10.2139/ssrn.6011735 
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg></a>
         </div>
+        <div class="flex gap-3 mt-2"><a href="https://ssrn.com/abstract=6011735" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-lg text-sm text-cyan-300 hover:bg-cyan-500/20 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg> Read Paper </a>
+        </div>
+       </div>
+      </article><!-- Publication 2 -->
+      <article class="publication-card card-glow rounded-xl p-6 md:p-8">
+       <div class="flex flex-col gap-4">
+        <div class="flex items-start justify-between gap-4"><span class="status-badge inline-flex items-center px-3 py-1 text-xs font-semibold bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/40"> Preprint </span> <span class="text-xs text-slate-400">2026</span>
+        </div>
+        <h3 class="text-xl md:text-2xl font-bold text-white leading-snug">SignalGPT: A Deployable and Interpretable AI Framework for 24-Hour Directional Market Signal Prediction</h3>
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-slate-400"><span class="flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+          </svg> Zenodo </span> <span class="hidden sm:inline text-slate-600">•</span> <a href="https://doi.org/10.5281/zenodo.18226653" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:text-cyan-300 hover:underline flex items-center gap-1"> DOI: 10.5281/zenodo.18226653 
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg></a>
+        </div>
+        <div class="flex gap-3 mt-2"><a href="https://zenodo.org/records/18226653" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/10 border border-cyan-500/30 rounded-lg text-sm text-cyan-300 hover:bg-cyan-500/20 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg> Read Paper </a>
+        </div>
+       </div>
+      </article>
+     </div>
+    </div>
+   </section>
+   <div class="section-divider max-w-6xl mx-auto"></div><!-- Projects Section -->
+   <section id="projects" class="py-20 px-6 gradient-section">
+    <div class="max-w-6xl mx-auto">
+     <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Projects &amp; Systems</h2>
+     <div class="grid md:grid-cols-1 gap-8"><!-- SignalGPT Project -->
+      <div class="card-glow rounded-xl p-8 bg-gradient-to-br from-slate-800/50 to-slate-900/50 border border-cyan-500/20">
+       <div class="flex flex-col md:flex-row gap-6 items-start">
+        <div class="flex-shrink-0">
+         <div class="w-16 h-16 project-icon-bg rounded-xl flex items-center justify-center shadow-lg shadow-cyan-500/30">
+          <svg class="w-9 h-9 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+         </div>
+        </div>
+        <div class="flex-1">
+         <h3 class="text-2xl font-bold text-white mb-3">SignalGPT</h3>
+         <p class="text-slate-300 leading-relaxed mb-6">A deployable and interpretable AI framework for generating 24-hour directional market signals. This system combines advanced machine learning techniques with explainability features, enabling transparent and trustworthy decision-making in financial applications. Designed for real-world deployment with production-ready architecture.</p>
+         <div class="flex flex-wrap gap-3"><a href="https://djrizzz88.github.io/signalgpt-frontend/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-700 border border-slate-600 rounded-lg text-sm text-white hover:bg-slate-600 transition-colors">
+           <svg class="w-5 h-5" fill="currentColor" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+           </svg> GitHub Repository </a> <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-lg text-sm text-white hover:from-cyan-600 hover:to-blue-600 transition-colors shadow-lg shadow-cyan-500/30">
+           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+           </svg> Live Demo </a>
+         </div>
+        </div>
+       </div>
       </div>
-
-      <div class="pub">
-        <div class="pub-title">
-          Explainable AI Framework for Credit Card Fraud Detection Using XGBoost, Deep Neural Networks and SHAP-Based Interpretability
-        </div>
-        <div>Working Paper, SSRN (2026)</div>
-        <div class="links">
-          <a href="https://doi.org/10.2139/ssrn.6011735" target="_blank">DOI</a>
-          <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6011735" target="_blank">SSRN</a>
-        </div>
+     </div>
+    </div>
+   </section>
+   <div class="section-divider max-w-6xl mx-auto"></div><!-- Research Interests Section -->
+   <section id="interests" class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+     <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Research Interests</h2>
+     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div class="interest-chip px-6 py-4 rounded-xl text-center">
+       <div class="text-3xl mb-2">
+        🧠
+       </div>
+       <p class="text-sm font-semibold text-cyan-300">Explainable AI</p>
       </div>
-
+      <div class="interest-chip px-6 py-4 rounded-xl text-center">
+       <div class="text-3xl mb-2">
+        ⚙️
+       </div>
+       <p class="text-sm font-semibold text-cyan-300">Machine Learning</p>
+      </div>
+      <div class="interest-chip px-6 py-4 rounded-xl text-center">
+       <div class="text-3xl mb-2">
+        🛡️
+       </div>
+       <p class="text-sm font-semibold text-cyan-300">Fraud Detection</p>
+      </div>
+      <div class="interest-chip px-6 py-4 rounded-xl text-center">
+       <div class="text-3xl mb-2">
+        📈
+       </div>
+       <p class="text-sm font-semibold text-cyan-300">Financial Time Series</p>
+      </div>
+      <div class="interest-chip px-6 py-4 rounded-xl text-center">
+       <div class="text-3xl mb-2">
+        ✨
+       </div>
+       <p class="text-sm font-semibold text-cyan-300">Responsible AI</p>
+      </div>
+      <div class="interest-chip px-6 py-4 rounded-xl text-center">
+       <div class="text-3xl mb-2">
+        🚀
+       </div>
+       <p class="text-sm font-semibold text-cyan-300">AI Deployment</p>
+      </div>
+      <div class="interest-chip px-6 py-4 rounded-xl text-center">
+       <div class="text-3xl mb-2">
+        🔍
+       </div>
+       <p class="text-sm font-semibold text-cyan-300">Model Interpretability</p>
+      </div>
+      <div class="interest-chip px-6 py-4 rounded-xl text-center">
+       <div class="text-3xl mb-2">
+        📊
+       </div>
+       <p class="text-sm font-semibold text-cyan-300">Risk Modelling</p>
+      </div>
+     </div>
     </div>
-
-    <div class="section">
-      <h2>Research Interests</h2>
-      <span class="badge">Explainable AI</span>
-      <span class="badge">Machine Learning</span>
-      <span class="badge">Fraud Detection</span>
-      <span class="badge">Financial Time Series</span>
-      <span class="badge">Responsible AI</span>
+   </section>
+   <div class="section-divider max-w-6xl mx-auto"></div><!-- Contact & Links Section -->
+   <section id="contact" class="py-20 px-6 gradient-section">
+    <div class="max-w-6xl mx-auto">
+     <h2 class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Academic Links &amp; Contact</h2>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Website --> <a href="https://rizwanali.uk" target="_blank" rel="noopener noreferrer" class="card-glow flex items-center gap-4 p-6 bg-slate-800/50 rounded-xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all">
+       <div class="social-icon w-12 h-12 bg-gradient-to-br from-cyan-500 to-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+        </svg>
+       </div>
+       <div>
+        <p class="text-sm font-semibold text-white">Website</p>
+        <p class="text-xs text-slate-400">rizwanali.uk</p>
+       </div></a> <!-- ORCID --> <a href="https://orcid.org/0009-0007-2602-3349" target="_blank" rel="noopener noreferrer" class="card-glow flex items-center gap-4 p-6 bg-slate-800/50 rounded-xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all">
+       <div class="social-icon w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-lg flex items-center justify-center flex-shrink-0">
+        <svg class="w-6 h-6 text-white" viewbox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z" />
+        </svg>
+       </div>
+       <div>
+        <p class="text-sm font-semibold text-white">ORCID</p>
+        <p class="text-xs text-slate-400">Researcher ID</p>
+       </div></a> <!-- SSRN --> <a href="https://doi.org/10.2139/ssrn.6011735" target="_blank" rel="noopener noreferrer" class="card-glow flex items-center gap-4 p-6 bg-slate-800/50 rounded-xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all">
+       <div class="social-icon w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+        </svg>
+       </div>
+       <div>
+        <p class="text-sm font-semibold text-white">SSRN</p>
+        <p class="text-xs text-slate-400">Working Papers</p>
+       </div></a> <!-- Zenodo --> <a href="https://doi.org/10.5281/zenodo.18226653" target="_blank" rel="noopener noreferrer" class="card-glow flex items-center gap-4 p-6 bg-slate-800/50 rounded-xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all">
+       <div class="social-icon w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center flex-shrink-0">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+        </svg>
+       </div>
+       <div>
+        <p class="text-sm font-semibold text-white">Zenodo</p>
+        <p class="text-xs text-slate-400">Research Archive</p>
+       </div></a> <!-- GitHub --> <a href="https://github.com/djrizzz88/signalgpt-backend" target="_blank" rel="noopener noreferrer" class="card-glow flex items-center gap-4 p-6 bg-slate-800/50 rounded-xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all">
+       <div class="social-icon w-12 h-12 bg-gradient-to-br from-slate-600 to-slate-700 rounded-lg flex items-center justify-center flex-shrink-0">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+        </svg>
+       </div>
+       <div>
+        <p class="text-sm font-semibold text-white">GitHub</p>
+        <p class="text-xs text-slate-400">Code Repositories</p>
+       </div></a> <!-- Email --> <a id="email-link" href="mailto:Rali314@caledonian.ac.uk" class="card-glow flex items-center gap-4 p-6 bg-slate-800/50 rounded-xl border border-cyan-500/20 hover:border-cyan-500/40 transition-all">
+       <div class="social-icon w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center flex-shrink-0">
+        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+       </div>
+       <div>
+        <p class="text-sm font-semibold text-white">Email</p>
+        <p id="email-display" class="text-xs text-slate-400">Rali314@caledonian.ac.uk</p>
+       </div></a>
+     </div>
     </div>
-
-    <div class="footer">
-      © 2026 Rizwan Ali • This page consolidates verified research outputs and public demonstrations.
+   </section><!-- Footer -->
+   <footer class="py-12 px-6 bg-gradient-to-b from-slate-900 to-slate-950 border-t border-cyan-900/30">
+    <div class="max-w-6xl mx-auto text-center">
+     <p class="text-sm text-slate-400 mb-3">© <span id="footer-year"></span> Rizwan Ali. All rights reserved.</p>
+     <p id="footer-statement" class="text-xs text-slate-500">This website consolidates verified research outputs, publications, and public AI systems.</p>
     </div>
-
+   </footer>
   </div>
-</div>
-</body>
+  <script>
+    // Default configuration
+    const defaultConfig = {
+      researcher_name: 'Rizwan Ali',
+      researcher_title: 'Independent AI Researcher',
+      hero_statement: 'Building interpretable, deployable AI systems for real-world decision-making.',
+      about_heading: 'About Me',
+      about_paragraph: 'Rizwan Ali is an independent AI researcher specialising in explainable artificial intelligence, machine learning systems, and financial risk modelling. His work bridges the gap between complex AI models and practical, interpretable solutions that can be deployed in real-world environments. With a focus on transparency, trust, and responsible AI development, he addresses critical challenges in fraud detection, market prediction, and risk assessment through rigorous, reproducible research.',
+      contact_email: 'Rali314@caledonian.ac.uk',
+      footer_text: 'This website consolidates verified research outputs, publications, and public AI systems.',
+      background_color: '#0f172a',
+      accent_color: '#06b6d4',
+      text_color: '#e2e8f0',
+      card_color: '#1e1b4b',
+      button_color: '#0ea5e9'
+    };
+
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', function() {
+        document.getElementById('mobile-menu').classList.add('hidden');
+      });
+    });
+
+    // Set current year
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // Element SDK initialization
+    async function onConfigChange(config) {
+      const c = { ...defaultConfig, ...config };
+      
+      // Update text content
+      document.getElementById('hero-name').textContent = c.researcher_name;
+      document.getElementById('hero-title').textContent = c.researcher_title;
+      document.getElementById('hero-statement').textContent = c.hero_statement;
+      document.getElementById('about-heading').textContent = c.about_heading;
+      document.getElementById('about-paragraph').textContent = c.about_paragraph;
+      document.getElementById('footer-statement').textContent = c.footer_text;
+      
+      // Update email
+      const emailLink = document.getElementById('email-link');
+      const emailDisplay = document.getElementById('email-display');
+      emailLink.href = `mailto:${c.contact_email}`;
+      emailDisplay.textContent = c.contact_email;
+      
+      // Apply colors
+      document.body.style.backgroundColor = c.background_color;
+      
+      // Update accent colors
+      document.querySelectorAll('.text-cyan-400, .text-cyan-300').forEach(el => {
+        el.style.color = c.accent_color;
+      });
+      
+      // Update text colors
+      document.querySelectorAll('h1, h2, h3, .text-white').forEach(el => {
+        el.style.color = c.text_color;
+      });
+    }
+
+    function mapToCapabilities(config) {
+      const c = { ...defaultConfig, ...config };
+      return {
+        recolorables: [
+          {
+            get: () => c.background_color,
+            set: (value) => {
+              c.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => c.accent_color,
+            set: (value) => {
+              c.accent_color = value;
+              window.elementSdk.setConfig({ accent_color: value });
+            }
+          },
+          {
+            get: () => c.text_color,
+            set: (value) => {
+              c.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => c.card_color,
+            set: (value) => {
+              c.card_color = value;
+              window.elementSdk.setConfig({ card_color: value });
+            }
+          },
+          {
+            get: () => c.button_color,
+            set: (value) => {
+              c.button_color = value;
+              window.elementSdk.setConfig({ button_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => c.font_family || 'Inter',
+          set: (value) => {
+            c.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => c.font_size || 16,
+          set: (value) => {
+            c.font_size = value;
+            window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      const c = { ...defaultConfig, ...config };
+      return new Map([
+        ['researcher_name', c.researcher_name],
+        ['researcher_title', c.researcher_title],
+        ['hero_statement', c.hero_statement],
+        ['about_heading', c.about_heading],
+        ['about_paragraph', c.about_paragraph],
+        ['contact_email', c.contact_email],
+        ['footer_text', c.footer_text]
+      ]);
+    }
+
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    } else {
+      onConfigChange(defaultConfig);
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c01505e73d576a7',t:'MTc2ODc3MzA4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
