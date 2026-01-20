@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certifications | Rizwan Ali</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;900&amp;family=Rajdhani:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+      font-family: 'Rajdhani', sans-serif;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Orbitron', sans-serif;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #0a0e27 0%, #16213e 50%, #0f3460 100%);
+    }
+    
+    .card-glow {
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.15);
+      transition: all 0.4s ease;
+    }
+    
+    .card-glow:hover {
+      box-shadow: 0 8px 35px rgba(56, 189, 248, 0.25);
+      transform: translateY(-4px);
+    }
+    
+    .neural-network {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    
+    .neural-node {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #06b6d4;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(6, 182, 212, 0.8);
+      animation: node-pulse 3s ease-in-out infinite;
+    }
+    
+    @keyframes node-pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.4;
+      }
+      50% {
+        transform: scale(2);
+        opacity: 1;
+      }
+    }
+    
+    .neural-connection {
+      position: absolute;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.4), transparent);
+      transform-origin: left center;
+      animation: connection-flow 4s linear infinite;
+    }
+    
+    @keyframes connection-flow {
+      0% {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      50% {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+    }
+    
+    .holographic-border {
+      position: relative;
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    
+    .holographic-border::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      background: linear-gradient(45deg, #06b6d4, #0ea5e9, #06b6d4);
+      border-radius: inherit;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+      animation: border-glow 3s linear infinite;
+    }
+    
+    .holographic-border:hover::before {
+      opacity: 0.3;
+    }
+    
+    @keyframes border-glow {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+    
+    .cyber-grid {
+      background-image: 
+        linear-gradient(rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    
+    .text-glow {
+      text-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+    }
+    
+    .backdrop-blur-custom {
+      backdrop-filter: blur(12px);
+      background-color: rgba(10, 14, 39, 0.85);
+    }
+    
+    .scan-line {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #06b6d4, transparent);
+      animation: scan 4s linear infinite;
+      opacity: 0.6;
+    }
+    
+    @keyframes scan {
+      0% {
+        top: 0%;
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        top: 100%;
+        opacity: 0;
+      }
+    }
+    
+    .energy-orb {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.2), transparent);
+      animation: orb-pulse 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    
+    @keyframes orb-pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+      }
+      50% {
+        transform: scale(1.5);
+        opacity: 0.6;
+      }
+    }
+    
+    .cert-placeholder {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+      border: 2px dashed rgba(6, 182, 212, 0.4);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    
+    .cert-placeholder:hover {
+      border-color: rgba(6, 182, 212, 0.7);
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 1) 100%);
+    }
+    
+    .cert-placeholder::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 150%;
+      height: 150%;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.1), transparent);
+      transform: translate(-50%, -50%);
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+    }
+    
+    .cert-icon {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .badge-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
+      border-radius: 50%;
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.4);
+      transition: all 0.4s ease;
+    }
+    
+    .badge-icon:hover {
+      transform: scale(1.1) rotateZ(15deg);
+      box-shadow: 0 6px 30px rgba(6, 182, 212, 0.6);
+    }
+    
+    .data-particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: radial-gradient(circle, #06b6d4, transparent);
+      border-radius: 50%;
+      animation: particle-drift 6s ease-in-out infinite;
+    }
+    
+    @keyframes particle-drift {
+      0%, 100% {
+        transform: translate(0, 0) scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        transform: translate(var(--dx), var(--dy)) scale(1.5);
+        opacity: 1;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full gradient-bg text-slate-200">
+  <div id="app-wrapper" class="w-full h-full overflow-auto"><!-- Navigation -->
+   <nav class="sticky top-0 z-50 backdrop-blur-custom border-b border-cyan-900/30">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+     <div class="flex items-center justify-between"><a href="/" class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">RA</a>
+      <div class="flex items-center gap-6 text-sm"><a href="/" class="text-slate-300 hover:text-cyan-400 transition-colors">← Back to Portfolio</a>
+      </div>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section class="relative py-20 md:py-28 px-6 overflow-hidden cyber-grid"><!-- Decorative Elements -->
+    <div class="energy-orb" style="top: -150px; left: -100px;"></div>
+    <div class="energy-orb" style="bottom: -150px; right: -100px; animation-delay: 4s;"></div><!-- Data Particles -->
+    <div class="data-particle" style="top: 15%; left: 10%; --dx: 50px; --dy: -30px; animation-delay: 0s;"></div>
+    <div class="data-particle" style="top: 30%; left: 85%; --dx: -40px; --dy: 40px; animation-delay: 1s;"></div>
+    <div class="data-particle" style="top: 50%; left: 20%; --dx: 30px; --dy: -50px; animation-delay: 2s;"></div>
+    <div class="data-particle" style="top: 65%; left: 75%; --dx: -50px; --dy: 30px; animation-delay: 3s;"></div><!-- Neural Network -->
+    <div class="neural-network">
+     <div class="neural-node" style="top: 10%; left: 15%; animation-delay: 0s;"></div>
+     <div class="neural-node" style="top: 20%; left: 45%; animation-delay: 0.5s;"></div>
+     <div class="neural-node" style="top: 15%; left: 75%; animation-delay: 1s;"></div>
+     <div class="neural-node" style="top: 40%; left: 25%; animation-delay: 1.5s;"></div>
+     <div class="neural-node" style="top: 45%; left: 65%; animation-delay: 2s;"></div>
+     <div class="neural-node" style="top: 35%; left: 85%; animation-delay: 2.5s;"></div>
+     <div class="neural-connection" style="top: 10%; left: 15%; width: 30%; transform: rotate(5deg); animation-delay: 0s;"></div>
+     <div class="neural-connection" style="top: 20%; left: 45%; width: 28%; transform: rotate(-3deg); animation-delay: 1s;"></div>
+     <div class="neural-connection" style="top: 40%; left: 25%; width: 38%; transform: rotate(8deg); animation-delay: 2s;"></div>
+    </div>
+    <div class="scan-line"></div>
+    <div class="relative max-w-5xl mx-auto text-center">
+     <div class="inline-flex items-center justify-center mb-6">
+      <div class="badge-icon">
+       <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+         <animate attributename="opacity" values="0.7;1;0.7" dur="2s" repeatcount="indefinite" />
+        </path>
+       </svg>
+      </div>
+     </div>
+     <h1 id="page-title" class="text-5xl md:text-7xl font-black text-white mb-6 text-glow">Certifications</h1>
+     <p id="page-subtitle" class="text-xl md:text-2xl text-slate-300 font-medium max-w-3xl mx-auto">Professional certifications and achievements in AI, Machine Learning, and Data Science</p>
+    </div>
+   </section><!-- Certifications Grid -->
+   <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"><!-- Certificate 1 -->
+      <div class="holographic-border rounded-xl overflow-hidden card-glow">
+       <div class="cert-placeholder">
+        <svg class="cert-icon text-cyan-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+          <animate attributename="stroke-opacity" values="0.5;1;0.5" dur="3s" repeatcount="indefinite" />
+         </path>
+        </svg>
+        <p class="text-cyan-300 text-sm font-semibold tracking-wide relative z-1">CERTIFICATE PLACEHOLDER</p>
+       </div>
+       <div class="p-6 bg-gradient-to-b from-slate-800/50 to-slate-900/70">
+        <h3 id="cert-1-title" class="text-xl font-bold text-white mb-2">Certificate Title</h3>
+        <p id="cert-1-issuer" class="text-cyan-400 text-sm mb-2">Issuing Organization</p>
+        <p id="cert-1-date" class="text-slate-400 text-sm">Issue Date</p>
+       </div>
+      </div><!-- Certificate 2 -->
+      <div class="holographic-border rounded-xl overflow-hidden card-glow">
+       <div class="cert-placeholder">
+        <svg class="cert-icon text-cyan-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+          <animate attributename="stroke-opacity" values="0.5;1;0.5" dur="3s" begin="0.3s" repeatcount="indefinite" />
+         </path>
+        </svg>
+        <p class="text-cyan-300 text-sm font-semibold tracking-wide relative z-1">CERTIFICATE PLACEHOLDER</p>
+       </div>
+       <div class="p-6 bg-gradient-to-b from-slate-800/50 to-slate-900/70">
+        <h3 id="cert-2-title" class="text-xl font-bold text-white mb-2">Certificate Title</h3>
+        <p id="cert-2-issuer" class="text-cyan-400 text-sm mb-2">Issuing Organization</p>
+        <p id="cert-2-date" class="text-slate-400 text-sm">Issue Date</p>
+       </div>
+      </div><!-- Certificate 3 -->
+      <div class="holographic-border rounded-xl overflow-hidden card-glow">
+       <div class="cert-placeholder">
+        <svg class="cert-icon text-cyan-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+          <animate attributename="stroke-opacity" values="0.5;1;0.5" dur="3s" begin="0.6s" repeatcount="indefinite" />
+         </path>
+        </svg>
+        <p class="text-cyan-300 text-sm font-semibold tracking-wide relative z-1">CERTIFICATE PLACEHOLDER</p>
+       </div>
+       <div class="p-6 bg-gradient-to-b from-slate-800/50 to-slate-900/70">
+        <h3 id="cert-3-title" class="text-xl font-bold text-white mb-2">Certificate Title</h3>
+        <p id="cert-3-issuer" class="text-cyan-400 text-sm mb-2">Issuing Organization</p>
+        <p id="cert-3-date" class="text-slate-400 text-sm">Issue Date</p>
+       </div>
+      </div><!-- Certificate 4 -->
+      <div class="holographic-border rounded-xl overflow-hidden card-glow">
+       <div class="cert-placeholder">
+        <svg class="cert-icon text-cyan-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+          <animate attributename="stroke-opacity" values="0.5;1;0.5" dur="3s" begin="0.9s" repeatcount="indefinite" />
+         </path>
+        </svg>
+        <p class="text-cyan-300 text-sm font-semibold tracking-wide relative z-1">CERTIFICATE PLACEHOLDER</p>
+       </div>
+       <div class="p-6 bg-gradient-to-b from-slate-800/50 to-slate-900/70">
+        <h3 id="cert-4-title" class="text-xl font-bold text-white mb-2">Certificate Title</h3>
+        <p id="cert-4-issuer" class="text-cyan-400 text-sm mb-2">Issuing Organization</p>
+        <p id="cert-4-date" class="text-slate-400 text-sm">Issue Date</p>
+       </div>
+      </div><!-- Certificate 5 -->
+      <div class="holographic-border rounded-xl overflow-hidden card-glow">
+       <div class="cert-placeholder">
+        <svg class="cert-icon text-cyan-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+          <animate attributename="stroke-opacity" values="0.5;1;0.5" dur="3s" begin="1.2s" repeatcount="indefinite" />
+         </path>
+        </svg>
+        <p class="text-cyan-300 text-sm font-semibold tracking-wide relative z-1">CERTIFICATE PLACEHOLDER</p>
+       </div>
+       <div class="p-6 bg-gradient-to-b from-slate-800/50 to-slate-900/70">
+        <h3 id="cert-5-title" class="text-xl font-bold text-white mb-2">Certificate Title</h3>
+        <p id="cert-5-issuer" class="text-cyan-400 text-sm mb-2">Issuing Organization</p>
+        <p id="cert-5-date" class="text-slate-400 text-sm">Issue Date</p>
+       </div>
+      </div><!-- Certificate 6 -->
+      <div class="holographic-border rounded-xl overflow-hidden card-glow">
+       <div class="cert-placeholder">
+        <svg class="cert-icon text-cyan-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+          <animate attributename="stroke-opacity" values="0.5;1;0.5" dur="3s" begin="1.5s" repeatcount="indefinite" />
+         </path>
+        </svg>
+        <p class="text-cyan-300 text-sm font-semibold tracking-wide relative z-1">CERTIFICATE PLACEHOLDER</p>
+       </div>
+       <div class="p-6 bg-gradient-to-b from-slate-800/50 to-slate-900/70">
+        <h3 id="cert-6-title" class="text-xl font-bold text-white mb-2">Certificate Title</h3>
+        <p id="cert-6-issuer" class="text-cyan-400 text-sm mb-2">Issuing Organization</p>
+        <p id="cert-6-date" class="text-slate-400 text-sm">Issue Date</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer class="py-12 px-6 bg-gradient-to-b from-transparent to-slate-950 border-t border-cyan-900/30">
+    <div class="max-w-7xl mx-auto text-center">
+     <p class="text-sm text-slate-400 mb-3">© <span id="footer-year"></span> Rizwan Ali. All rights reserved.</p>
+     <p class="text-xs text-slate-500">Dedicated to advancing interpretable and deployable AI systems</p>
+    </div>
+   </footer>
+  </div>
+  <script>
+    // Default configuration
+    const defaultConfig = {
+      page_title: 'Certifications',
+      page_subtitle: 'Professional certifications and achievements in AI, Machine Learning, and Data Science',
+      cert_1_title: 'Certificate Title',
+      cert_1_issuer: 'Issuing Organization',
+      cert_1_date: 'Issue Date',
+      cert_2_title: 'Certificate Title',
+      cert_2_issuer: 'Issuing Organization',
+      cert_2_date: 'Issue Date',
+      cert_3_title: 'Certificate Title',
+      cert_3_issuer: 'Issuing Organization',
+      cert_3_date: 'Issue Date',
+      cert_4_title: 'Certificate Title',
+      cert_4_issuer: 'Issuing Organization',
+      cert_4_date: 'Issue Date',
+      cert_5_title: 'Certificate Title',
+      cert_5_issuer: 'Issuing Organization',
+      cert_5_date: 'Issue Date',
+      cert_6_title: 'Certificate Title',
+      cert_6_issuer: 'Issuing Organization',
+      cert_6_date: 'Issue Date',
+      background_color: '#0a0e27',
+      accent_color: '#06b6d4',
+      text_color: '#e2e8f0',
+      card_color: '#1e293b',
+      badge_color: '#0ea5e9'
+    };
+
+    // Set current year
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // Element SDK initialization
+    async function onConfigChange(config) {
+      const c = { ...defaultConfig, ...config };
+      
+      // Update hero text
+      document.getElementById('page-title').textContent = c.page_title;
+      document.getElementById('page-subtitle').textContent = c.page_subtitle;
+      
+      // Update certificate 1
+      document.getElementById('cert-1-title').textContent = c.cert_1_title;
+      document.getElementById('cert-1-issuer').textContent = c.cert_1_issuer;
+      document.getElementById('cert-1-date').textContent = c.cert_1_date;
+      
+      // Update certificate 2
+      document.getElementById('cert-2-title').textContent = c.cert_2_title;
+      document.getElementById('cert-2-issuer').textContent = c.cert_2_issuer;
+      document.getElementById('cert-2-date').textContent = c.cert_2_date;
+      
+      // Update certificate 3
+      document.getElementById('cert-3-title').textContent = c.cert_3_title;
+      document.getElementById('cert-3-issuer').textContent = c.cert_3_issuer;
+      document.getElementById('cert-3-date').textContent = c.cert_3_date;
+      
+      // Update certificate 4
+      document.getElementById('cert-4-title').textContent = c.cert_4_title;
+      document.getElementById('cert-4-issuer').textContent = c.cert_4_issuer;
+      document.getElementById('cert-4-date').textContent = c.cert_4_date;
+      
+      // Update certificate 5
+      document.getElementById('cert-5-title').textContent = c.cert_5_title;
+      document.getElementById('cert-5-issuer').textContent = c.cert_5_issuer;
+      document.getElementById('cert-5-date').textContent = c.cert_5_date;
+      
+      // Update certificate 6
+      document.getElementById('cert-6-title').textContent = c.cert_6_title;
+      document.getElementById('cert-6-issuer').textContent = c.cert_6_issuer;
+      document.getElementById('cert-6-date').textContent = c.cert_6_date;
+      
+      // Apply colors
+      document.body.style.backgroundColor = c.background_color;
+    }
+
+    function mapToCapabilities(config) {
+      const c = { ...defaultConfig, ...config };
+      return {
+        recolorables: [
+          {
+            get: () => c.background_color,
+            set: (value) => {
+              c.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => c.accent_color,
+            set: (value) => {
+              c.accent_color = value;
+              window.elementSdk.setConfig({ accent_color: value });
+            }
+          },
+          {
+            get: () => c.text_color,
+            set: (value) => {
+              c.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => c.card_color,
+            set: (value) => {
+              c.card_color = value;
+              window.elementSdk.setConfig({ card_color: value });
+            }
+          },
+          {
+            get: () => c.badge_color,
+            set: (value) => {
+              c.badge_color = value;
+              window.elementSdk.setConfig({ badge_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => c.font_family || 'Rajdhani',
+          set: (value) => {
+            c.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => c.font_size || 16,
+          set: (value) => {
+            c.font_size = value;
+            window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      const c = { ...defaultConfig, ...config };
+      return new Map([
+        ['page_title', c.page_title],
+        ['page_subtitle', c.page_subtitle],
+        ['cert_1_title', c.cert_1_title],
+        ['cert_1_issuer', c.cert_1_issuer],
+        ['cert_1_date', c.cert_1_date],
+        ['cert_2_title', c.cert_2_title],
+        ['cert_2_issuer', c.cert_2_issuer],
+        ['cert_2_date', c.cert_2_date],
+        ['cert_3_title', c.cert_3_title],
+        ['cert_3_issuer', c.cert_3_issuer],
+        ['cert_3_date', c.cert_3_date],
+        ['cert_4_title', c.cert_4_title],
+        ['cert_4_issuer', c.cert_4_issuer],
+        ['cert_4_date', c.cert_4_date],
+        ['cert_5_title', c.cert_5_title],
+        ['cert_5_issuer', c.cert_5_issuer],
+        ['cert_5_date', c.cert_5_date],
+        ['cert_6_title', c.cert_6_title],
+        ['cert_6_issuer', c.cert_6_issuer],
+        ['cert_6_date', c.cert_6_date]
+      ]);
+    }
+
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    } else {
+      onConfigChange(defaultConfig);
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c11b3f7f3e2ef1d',t:'MTc2ODk0NDk0MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
