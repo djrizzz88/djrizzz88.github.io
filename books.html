@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Books by Rizwan Ali</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&amp;family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #FFFCFA;
+      --text-color: #4A4A4A;
+      --accent-gold: #D4AF37;
+      --accent-blush: #F5E1DA;
+      --accent-beige: #FAF3ED;
+    }
+    
+    .font-script {
+      font-family: 'Great Vibes', cursive;
+    }
+    
+    .font-serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+    
+    .text-shadow-soft {
+      text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(3deg); }
+    }
+    
+    @keyframes float-reverse {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(-3deg); }
+    }
+    
+    @keyframes drift {
+      0%, 100% { transform: translateX(0) translateY(0); }
+      25% { transform: translateX(10px) translateY(-5px); }
+      50% { transform: translateX(20px) translateY(0); }
+      75% { transform: translateX(10px) translateY(5px); }
+    }
+    
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .animate-float-reverse {
+      animation: float-reverse 5s ease-in-out infinite;
+    }
+    
+    .animate-drift {
+      animation: drift 8s ease-in-out infinite;
+    }
+    
+    .book-card {
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .book-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(212, 175, 55, 0.15);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-gold), #C9A227);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px -5px rgba(212, 175, 55, 0.4);
+    }
+    
+    .btn-secondary {
+      border: 1.5px solid var(--accent-gold);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover {
+      background: var(--accent-gold);
+      color: white;
+    }
+    
+    .feather-decoration {
+      opacity: 0.15;
+    }
+    
+    .petal {
+      position: absolute;
+      opacity: 0.2;
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full font-serif overflow-auto" style="background-color: var(--bg-color); color: var(--text-color);">
+  <div class="w-full min-h-full relative"><!-- Decorative Elements - Feathers and Birds -->
+   <div class="fixed inset-0 pointer-events-none overflow-hidden"><!-- Flying Birds SVG -->
+    <svg class="absolute top-20 right-20 w-32 h-32 opacity-10 animate-drift" viewbox="0 0 100 100"><path d="M10 50 Q20 40 30 50 Q40 40 50 50" stroke="#4A4A4A" fill="none" stroke-width="1.5" /> <path d="M60 35 Q70 25 80 35 Q90 25 100 35" stroke="#4A4A4A" fill="none" stroke-width="1.5" /> <path d="M25 70 Q35 60 45 70 Q55 60 65 70" stroke="#4A4A4A" fill="none" stroke-width="1.5" />
+    </svg><!-- Feather 1 -->
+    <svg class="absolute top-40 left-10 w-24 h-48 feather-decoration animate-float" viewbox="0 0 50 120"><path d="M25 0 Q30 30 25 60 Q20 90 25 120" stroke="#D4AF37" fill="none" stroke-width="0.5" /> <path d="M25 10 Q35 25 25 40" stroke="#D4AF37" fill="none" stroke-width="0.3" /> <path d="M25 20 Q15 35 25 50" stroke="#D4AF37" fill="none" stroke-width="0.3" /> <path d="M25 40 Q38 55 25 70" stroke="#D4AF37" fill="none" stroke-width="0.3" /> <path d="M25 50 Q12 65 25 80" stroke="#D4AF37" fill="none" stroke-width="0.3" /> <path d="M25 70 Q35 85 25 100" stroke="#D4AF37" fill="none" stroke-width="0.3" /> <path d="M25 80 Q15 95 25 110" stroke="#D4AF37" fill="none" stroke-width="0.3" />
+    </svg><!-- Feather 2 -->
+    <svg class="absolute bottom-40 right-16 w-20 h-40 feather-decoration animate-float-reverse" viewbox="0 0 50 120" style="transform: rotate(25deg);"><path d="M25 0 Q30 30 25 60 Q20 90 25 120" stroke="#F5E1DA" fill="none" stroke-width="0.8" /> <path d="M25 15 Q38 30 25 45" stroke="#F5E1DA" fill="none" stroke-width="0.4" /> <path d="M25 25 Q12 40 25 55" stroke="#F5E1DA" fill="none" stroke-width="0.4" /> <path d="M25 45 Q38 60 25 75" stroke="#F5E1DA" fill="none" stroke-width="0.4" /> <path d="M25 60 Q12 75 25 90" stroke="#F5E1DA" fill="none" stroke-width="0.4" />
+    </svg><!-- More Birds -->
+    <svg class="absolute top-96 left-1/4 w-20 h-20 opacity-8 animate-drift" style="animation-delay: -2s;" viewbox="0 0 100 100"><path d="M20 50 Q35 35 50 50 Q65 35 80 50" stroke="#4A4A4A" fill="none" stroke-width="1" />
+    </svg><!-- Petals -->
+    <div class="petal top-32 left-1/3 w-3 h-3 rounded-full animate-float" style="background: #F5E1DA; animation-delay: -1s;"></div>
+    <div class="petal top-64 right-1/4 w-2 h-2 rounded-full animate-float-reverse" style="background: #D4AF37; opacity: 0.15;"></div>
+    <div class="petal bottom-48 left-1/4 w-4 h-4 rounded-full animate-drift" style="background: #F5E1DA; opacity: 0.1;"></div>
+   </div><!-- Navigation -->
+   <nav class="relative z-10 py-6 px-8">
+    <div class="max-w-6xl mx-auto flex justify-between items-center"><a href="#" class="font-script text-3xl" style="color: var(--accent-gold);">Rizwan Ali</a>
+     <div class="hidden md:flex space-x-8 text-sm tracking-widest uppercase"><a href="#" class="hover:text-amber-600 transition-colors">Home</a> <a href="#" class="hover:text-amber-600 transition-colors" style="color: var(--accent-gold);">Books</a> <a href="#" class="hover:text-amber-600 transition-colors">About</a> <a href="#" class="hover:text-amber-600 transition-colors">Contact</a>
+     </div>
+    </div>
+   </nav><!-- Hero Section -->
+   <section class="relative z-10 py-20 px-8 text-center">
+    <div class="max-w-4xl mx-auto"><!-- Decorative line -->
+     <div class="flex items-center justify-center mb-8">
+      <div class="w-20 h-px" style="background: var(--accent-gold);"></div>
+      <svg class="mx-4 w-6 h-6" style="color: var(--accent-gold);" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z" />
+      </svg>
+      <div class="w-20 h-px" style="background: var(--accent-gold);"></div>
+     </div>
+     <h1 id="hero-title" class="font-script text-6xl md:text-8xl text-shadow-soft mb-6" style="color: var(--text-color);">Books by Rizwan Ali</h1>
+     <p id="hero-subtitle" class="text-xl md:text-2xl font-light italic max-w-2xl mx-auto leading-relaxed" style="color: #7A7A7A;">A collection of stories written with passion, emotion, and imagination.</p><!-- Decorative feather below hero -->
+     <svg class="mx-auto mt-12 w-12 h-24 opacity-20" viewbox="0 0 50 120"><path d="M25 0 Q30 30 25 60 Q20 90 25 120" stroke="#D4AF37" fill="none" stroke-width="1" /> <path d="M25 20 Q35 35 25 50 Q15 65 25 80 Q35 95 25 110" stroke="#D4AF37" fill="none" stroke-width="0.5" />
+     </svg>
+    </div>
+   </section><!-- Featured Book Section -->
+   <section class="relative z-10 py-16 px-8">
+    <div class="max-w-5xl mx-auto">
+     <div class="text-center mb-12"><span class="text-sm tracking-widest uppercase" style="color: var(--accent-gold);">Featured Book</span>
+     </div>
+     <div class="flex flex-col lg:flex-row items-center gap-12 p-8 rounded-3xl" style="background: linear-gradient(135deg, var(--accent-beige), #FFFFFF);"><!-- Book Cover -->
+      <div class="relative flex-shrink-0">
+       <div class="w-64 h-96 rounded-lg shadow-2xl overflow-hidden" style="background: linear-gradient(135deg, #2C1810, #4A2C1C);">
+        <div class="h-full flex flex-col items-center justify-center p-8 text-center"><!-- Decorative top -->
+         <svg class="w-16 h-8 mb-4 opacity-40" viewbox="0 0 60 30"><path d="M0 15 Q15 0 30 15 Q45 0 60 15" stroke="#D4AF37" fill="none" stroke-width="1" />
+         </svg>
+          <img src="https://chatgpt.com/backend-api/estuary/content?id=file_000000009980720ab6ce8db7d659588e&ts=492488&p=fs&cid=1&sig=8a83cc22faeb29494afa16f5c0943bceb23c041902bd58544972b968205425a8&v=0" />
+         <svg class="w-16 h-8 mt-4 opacity-40" viewbox="0 0 60 30"><path d="M0 15 Q15 30 30 15 Q45 30 60 15" stroke="#D4AF37" fill="none" stroke-width="1" />
+         </svg>
+        </div>
+       </div><!-- Book shadow -->
+       <div class="absolute -bottom-4 left-4 right-4 h-8 rounded-full blur-xl opacity-30" style="background: var(--accent-gold);"></div>
+      </div><!-- Book Details -->
+      <div class="flex-1 text-center lg:text-left">
+       <h2 id="featured-title" class="font-script text-5xl md:text-6xl mb-6" style="color: var(--text-color);">Geet - The UnSung Song of Love</h2>
+       <p id="featured-description" class="text-lg leading-relaxed mb-8 italic" style="color: #6A6A6A;">A tale of love that transcends time, where two souls find each other across the boundaries of fate. In the quiet moments between heartbeats, their story unfolds like petals of a rose, revealing the beauty of connection and the power of unwavering devotion.</p>
+       <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"><button class="btn-primary px-8 py-4 rounded-full text-white font-medium tracking-wider text-sm uppercase"> Read Online </button> <button class="btn-secondary px-8 py-4 rounded-full font-medium tracking-wider text-sm uppercase" style="color: var(--accent-gold);"> Download Book </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Book Gallery Section -->
+   <section class="relative z-10 py-20 px-8">
+    <div class="max-w-6xl mx-auto"><!-- Section Header -->
+     <div class="text-center mb-16">
+      <div class="flex items-center justify-center mb-6">
+       <div class="w-16 h-px" style="background: var(--accent-gold);"></div>
+       <svg class="mx-4 w-8 h-8 opacity-30" viewbox="0 0 50 50"><circle cx="25" cy="25" r="20" stroke="#D4AF37" fill="none" stroke-width="0.5" /> <circle cx="25" cy="25" r="12" stroke="#D4AF37" fill="none" stroke-width="0.5" /> <circle cx="25" cy="25" r="4" fill="#D4AF37" opacity="0.3" />
+       </svg>
+       <div class="w-16 h-px" style="background: var(--accent-gold);"></div>
+      </div>
+      <h2 class="font-script text-5xl md:text-6xl mb-4" style="color: var(--text-color);">My Collection</h2>
+      <p class="text-lg italic" style="color: #7A7A7A;">Stories that touch the soul</p>
+     </div><!-- Books Grid -->
+     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"><!-- Book Card 1 -->
+      <div class="book-card bg-white rounded-2xl p-6 shadow-lg">
+       <div class="w-full h-64 rounded-xl mb-6 overflow-hidden" style="background: linear-gradient(135deg, #1a365d, #2d3748);">
+        <div class="h-full flex flex-col items-center justify-center p-6 text-center">
+         <svg class="w-10 h-5 mb-3 opacity-40" viewbox="0 0 60 30"><path d="M0 15 Q15 0 30 15 Q45 0 60 15" stroke="#D4AF37" fill="none" stroke-width="1" />
+         </svg>
+         <h4 class="font-script text-3xl text-blue-100 mb-1">Midnight</h4>
+         <h4 class="font-script text-3xl text-blue-100">Dreams</h4>
+         <div class="w-8 h-px bg-blue-200 opacity-50 my-3"></div>
+         <p class="text-blue-200 text-xs tracking-widest uppercase">Rizwan Ali</p>
+        </div>
+       </div>
+       <h3 class="font-script text-3xl mb-3" style="color: var(--text-color);">The Other Half of Lal Haweli</h3>
+       <p class="text-sm leading-relaxed mb-6" style="color: #7A7A7A;">A South Asian Horro Story Based on Real Events.</p><button class="w-full btn-secondary py-3 rounded-full text-sm tracking-wider uppercase" style="color: var(--accent-gold);"> Read Now </button>
+      </div><!-- Book Card 2 -->
+      <div class="book-card bg-white rounded-2xl p-6 shadow-lg">
+       <div class="w-full h-64 rounded-xl mb-6 overflow-hidden" style="background: linear-gradient(135deg, #742a2a, #9c4221);">
+        <div class="h-full flex flex-col items-center justify-center p-6 text-center">
+         <svg class="w-10 h-5 mb-3 opacity-40" viewbox="0 0 60 30"><path d="M0 15 Q15 0 30 15 Q45 0 60 15" stroke="#D4AF37" fill="none" stroke-width="1" />
+         </svg>
+         <h4 class="font-script text-3xl text-red-100 mb-1">Autumn</h4>
+         <h4 class="font-script text-3xl text-red-100">Leaves</h4>
+         <div class="w-8 h-px bg-red-200 opacity-50 my-3"></div>
+         <p class="text-red-200 text-xs tracking-widest uppercase">Rizwan Ali</p>
+        </div>
+       </div>
+       <h3 class="font-script text-3xl mb-3" style="color: var(--text-color);">Autumn Leaves</h3>
+       <p class="text-sm leading-relaxed mb-6" style="color: #7A7A7A;">Like leaves that fall, love finds its way back to the earth. A story of change and eternal beauty.</p><button class="w-full btn-secondary py-3 rounded-full text-sm tracking-wider uppercase" style="color: var(--accent-gold);"> Read Now </button>
+      </div><!-- Book Card 3 -->
+      <div class="book-card bg-white rounded-2xl p-6 shadow-lg">
+       <div class="w-full h-64 rounded-xl mb-6 overflow-hidden" style="background: linear-gradient(135deg, #22543d, #276749);">
+        <div class="h-full flex flex-col items-center justify-center p-6 text-center">
+         <svg class="w-10 h-5 mb-3 opacity-40" viewbox="0 0 60 30"><path d="M0 15 Q15 0 30 15 Q45 0 60 15" stroke="#D4AF37" fill="none" stroke-width="1" />
+         </svg>
+         <h4 class="font-script text-3xl text-green-100 mb-1">Garden of</h4>
+         <h4 class="font-script text-3xl text-green-100">Secrets</h4>
+         <div class="w-8 h-px bg-green-200 opacity-50 my-3"></div>
+         <p class="text-green-200 text-xs tracking-widest uppercase">Rizwan Ali</p>
+        </div>
+       </div>
+       <h3 class="font-script text-3xl mb-3" style="color: var(--text-color);">Garden of Secrets</h3>
+       <p class="text-sm leading-relaxed mb-6" style="color: #7A7A7A;">Behind every garden wall lies a world of hidden stories, waiting to bloom in the light.</p><button class="w-full btn-secondary py-3 rounded-full text-sm tracking-wider uppercase" style="color: var(--accent-gold);"> Read Now </button>
+      </div><!-- Book Card 4 -->
+      <div class="book-card bg-white rounded-2xl p-6 shadow-lg">
+       <div class="w-full h-64 rounded-xl mb-6 overflow-hidden" style="background: linear-gradient(135deg, #553c7b, #6b46c1);">
+        <div class="h-full flex flex-col items-center justify-center p-6 text-center">
+         <svg class="w-10 h-5 mb-3 opacity-40" viewbox="0 0 60 30"><path d="M0 15 Q15 0 30 15 Q45 0 60 15" stroke="#D4AF37" fill="none" stroke-width="1" />
+         </svg>
+         <h4 class="font-script text-3xl text-purple-100 mb-1">Stars We</h4>
+         <h4 class="font-script text-3xl text-purple-100">Follow</h4>
+         <div class="w-8 h-px bg-purple-200 opacity-50 my-3"></div>
+         <p class="text-purple-200 text-xs tracking-widest uppercase">Rizwan Ali</p>
+        </div>
+       </div>
+       <h3 class="font-script text-3xl mb-3" style="color: var(--text-color);">Stars We Follow</h3>
+       <p class="text-sm leading-relaxed mb-6" style="color: #7A7A7A;">Under the infinite sky, we chase our dreams. A tale of ambition, love, and destiny.</p><button class="w-full btn-secondary py-3 rounded-full text-sm tracking-wider uppercase" style="color: var(--accent-gold);"> Read Now </button>
+      </div><!-- Book Card 5 -->
+      <div class="book-card bg-white rounded-2xl p-6 shadow-lg">
+       <div class="w-full h-64 rounded-xl mb-6 overflow-hidden" style="background: linear-gradient(135deg, #744210, #b7791f);">
+        <div class="h-full flex flex-col items-center justify-center p-6 text-center">
+         <svg class="w-10 h-5 mb-3 opacity-40" viewbox="0 0 60 30"><path d="M0 15 Q15 0 30 15 Q45 0 60 15" stroke="#D4AF37" fill="none" stroke-width="1" />
+         </svg>
+         <h4 class="font-script text-3xl text-yellow-100 mb-1">Letters</h4>
+         <h4 class="font-script text-3xl text-yellow-100">Unsent</h4>
+         <div class="w-8 h-px bg-yellow-200 opacity-50 my-3"></div>
+         <p class="text-yellow-200 text-xs tracking-widest uppercase">Rizwan Ali</p>
+        </div>
+       </div>
+       <h3 class="font-script text-3xl mb-3" style="color: var(--text-color);">Letters Unsent</h3>
+       <p class="text-sm leading-relaxed mb-6" style="color: #7A7A7A;">Words left unspoken carry the weight of a thousand emotions. A collection of love letters never sent.</p><button class="w-full btn-secondary py-3 rounded-full text-sm tracking-wider uppercase" style="color: var(--accent-gold);"> Read Now </button>
+      </div><!-- Book Card 6 -->
+      <div class="book-card bg-white rounded-2xl p-6 shadow-lg">
+       <div class="w-full h-64 rounded-xl mb-6 overflow-hidden" style="background: linear-gradient(135deg, #234e52, #319795);">
+        <div class="h-full flex flex-col items-center justify-center p-6 text-center">
+         <svg class="w-10 h-5 mb-3 opacity-40" viewbox="0 0 60 30"><path d="M0 15 Q15 0 30 15 Q45 0 60 15" stroke="#D4AF37" fill="none" stroke-width="1" />
+         </svg>
+         <h4 class="font-script text-3xl text-teal-100 mb-1">Ocean</h4>
+         <h4 class="font-script text-3xl text-teal-100">Memories</h4>
+         <div class="w-8 h-px bg-teal-200 opacity-50 my-3"></div>
+         <p class="text-teal-200 text-xs tracking-widest uppercase">Rizwan Ali</p>
+        </div>
+       </div>
+       <h3 class="font-script text-3xl mb-3" style="color: var(--text-color);">Ocean Memories</h3>
+       <p class="text-sm leading-relaxed mb-6" style="color: #7A7A7A;">The sea remembers every footprint, every tear. A poetic voyage through waves of nostalgia.</p><button class="w-full btn-secondary py-3 rounded-full text-sm tracking-wider uppercase" style="color: var(--accent-gold);"> Read Now </button>
+      </div>
+     </div>
+    </div>
+   </section><!-- Author Message Section -->
+   <section class="relative z-10 py-20 px-8" style="background: var(--accent-beige);">
+    <div class="max-w-4xl mx-auto text-center relative"><!-- Decorative feathers -->
+     <svg class="absolute -top-8 left-0 w-16 h-32 opacity-20 hidden md:block" viewbox="0 0 50 120" style="transform: rotate(-15deg);"><path d="M25 0 Q30 30 25 60 Q20 90 25 120" stroke="#D4AF37" fill="none" stroke-width="1" /> <path d="M25 20 Q35 35 25 50 Q15 65 25 80" stroke="#D4AF37" fill="none" stroke-width="0.5" />
+     </svg>
+     <svg class="absolute -bottom-8 right-0 w-16 h-32 opacity-20 hidden md:block" viewbox="0 0 50 120" style="transform: rotate(15deg);"><path d="M25 0 Q30 30 25 60 Q20 90 25 120" stroke="#D4AF37" fill="none" stroke-width="1" /> <path d="M25 20 Q35 35 25 50 Q15 65 25 80" stroke="#D4AF37" fill="none" stroke-width="0.5" />
+     </svg><!-- Quote marks -->
+     <svg class="mx-auto w-12 h-12 mb-8 opacity-30" viewbox="0 0 50 50" fill="#D4AF37"><path d="M10 25 L10 15 Q10 5 20 5 L22 5 L22 10 L20 10 Q15 10 15 15 L15 25 L10 25 Z M15 25 Q15 35 10 35 L10 30 Q12 30 12 25 L15 25 Z" /> <path d="M30 25 L30 15 Q30 5 40 5 L42 5 L42 10 L40 10 Q35 10 35 15 L35 25 L30 25 Z M35 25 Q35 35 30 35 L30 30 Q32 30 32 25 L35 25 Z" />
+     </svg>
+     <p id="author-quote" class="font-script text-3xl md:text-4xl leading-relaxed mb-8" style="color: var(--text-color);">Stories are not just words on paper. They are emotions that travel from one heart to another.</p>
+     <div class="flex items-center justify-center">
+      <div class="w-12 h-px" style="background: var(--accent-gold);"></div><span class="mx-4 font-script text-2xl" style="color: var(--accent-gold);">Rizwan Ali</span>
+      <div class="w-12 h-px" style="background: var(--accent-gold);"></div>
+     </div>
+    </div>
+   </section><!-- Newsletter Section -->
+   <section class="relative z-10 py-20 px-8">
+    <div class="max-w-2xl mx-auto text-center"><!-- Flying birds decoration -->
+     <svg class="mx-auto w-24 h-12 mb-8 opacity-20" viewbox="0 0 100 50"><path d="M10 25 Q25 10 40 25 Q55 10 70 25" stroke="#4A4A4A" fill="none" stroke-width="1.5" /> <path d="M50 40 Q60 30 70 40 Q80 30 90 40" stroke="#4A4A4A" fill="none" stroke-width="1" />
+     </svg>
+     <h2 class="font-script text-4xl md:text-5xl mb-4" style="color: var(--text-color);">Stay Connected</h2>
+     <p id="newsletter-text" class="text-lg italic mb-8" style="color: #7A7A7A;">Join my readers and be the first to discover new stories.</p>
+     <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto" onsubmit="event.preventDefault(); handleSubscribe();"><input type="email" placeholder="Enter your email" class="flex-1 px-6 py-4 rounded-full border focus:outline-none focus:border-amber-400 transition-colors" style="border-color: #E5E5E5; background: white;" required> <button type="submit" class="btn-primary px-8 py-4 rounded-full text-white font-medium tracking-wider text-sm uppercase"> Subscribe </button>
+     </form>
+     <p id="subscribe-message" class="text-sm mt-4 hidden" style="color: var(--accent-gold);">Thank you for subscribing! ✨</p>
+    </div>
+   </section><!-- Footer -->
+   <footer class="relative z-10 py-12 px-8 border-t" style="border-color: #F0E6DE;">
+    <div class="max-w-6xl mx-auto">
+     <div class="flex flex-col md:flex-row justify-between items-center gap-8"><!-- Logo --> <a href="#" class="font-script text-3xl" style="color: var(--accent-gold);">Rizwan Ali</a> <!-- Navigation -->
+      <nav class="flex flex-wrap justify-center gap-8 text-sm tracking-widest uppercase"><a href="#" class="hover:text-amber-600 transition-colors">Home</a> <a href="#" class="hover:text-amber-600 transition-colors" style="color: var(--accent-gold);">Books</a> <a href="#" class="hover:text-amber-600 transition-colors">About</a> <a href="#" class="hover:text-amber-600 transition-colors">Contact</a>
+      </nav><!-- Social hint -->
+      <div class="flex items-center gap-4">
+       <svg class="w-8 h-8 opacity-30" viewbox="0 0 50 50"><path d="M10 25 Q20 15 30 25 Q40 15 50 25" stroke="#D4AF37" fill="none" stroke-width="1" />
+       </svg>
+      </div>
+     </div>
+     <div class="text-center mt-8 pt-8 border-t" style="border-color: #F0E6DE;">
+      <p class="text-sm" style="color: #9A9A9A;">© 2024 Rizwan Ali. All stories are written with love.</p>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    // Default configuration
+    const defaultConfig = {
+      hero_title: 'Books by Rizwan Ali',
+      hero_subtitle: 'A collection of stories written with passion, emotion, and imagination.',
+      featured_title: 'Whispers of the Heart',
+      featured_description: 'A tale of love that transcends time, where two souls find each other across the boundaries of fate. In the quiet moments between heartbeats, their story unfolds like petals of a rose, revealing the beauty of connection and the power of unwavering devotion.',
+      author_quote: 'Stories are not just words on paper. They are emotions that travel from one heart to another.',
+      newsletter_text: 'Join my readers and be the first to discover new stories.',
+      background_color: '#FFFCFA',
+      text_color: '#4A4A4A',
+      accent_color: '#D4AF37',
+      secondary_color: '#F5E1DA',
+      surface_color: '#FFFFFF'
+    };
+
+    // Handle newsletter subscription
+    function handleSubscribe() {
+      const message = document.getElementById('subscribe-message');
+      message.classList.remove('hidden');
+      setTimeout(() => {
+        message.classList.add('hidden');
+      }, 3000);
+    }
+
+    // Initialize Element SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (config) => {
+          // Update hero section
+          document.getElementById('hero-title').textContent = config.hero_title || defaultConfig.hero_title;
+          document.getElementById('hero-subtitle').textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+          
+          // Update featured book
+          document.getElementById('featured-title').textContent = config.featured_title || defaultConfig.featured_title;
+          document.getElementById('featured-description').textContent = config.featured_description || defaultConfig.featured_description;
+          
+          // Update book cover title (split for display)
+          const featuredTitle = config.featured_title || defaultConfig.featured_title;
+          const titleParts = featuredTitle.split(' ');
+          const midPoint = Math.ceil(titleParts.length / 2);
+          document.getElementById('featured-book-cover-title').innerHTML = 
+            titleParts.slice(0, midPoint).join(' ') + '<br>' + titleParts.slice(midPoint).join(' ');
+          
+          // Update author quote
+          document.getElementById('author-quote').textContent = config.author_quote || defaultConfig.author_quote;
+          
+          // Update newsletter text
+          document.getElementById('newsletter-text').textContent = config.newsletter_text || defaultConfig.newsletter_text;
+          
+          // Apply colors
+          const bgColor = config.background_color || defaultConfig.background_color;
+          const textColor = config.text_color || defaultConfig.text_color;
+          const accentColor = config.accent_color || defaultConfig.accent_color;
+          const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
+          const surfaceColor = config.surface_color || defaultConfig.surface_color;
+          
+          document.documentElement.style.setProperty('--bg-color', bgColor);
+          document.documentElement.style.setProperty('--text-color', textColor);
+          document.documentElement.style.setProperty('--accent-gold', accentColor);
+          document.documentElement.style.setProperty('--accent-blush', secondaryColor);
+          
+          document.body.style.backgroundColor = bgColor;
+          document.body.style.color = textColor;
+          
+          // Update accent colored elements
+          document.querySelectorAll('.btn-primary').forEach(el => {
+            el.style.background = `linear-gradient(135deg, ${accentColor}, ${accentColor}dd)`;
+          });
+          
+          document.querySelectorAll('.btn-secondary').forEach(el => {
+            el.style.borderColor = accentColor;
+            el.style.color = accentColor;
+          });
+          
+          // Update book cards background
+          document.querySelectorAll('.book-card').forEach(el => {
+            el.style.backgroundColor = surfaceColor;
+          });
+        },
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => window.elementSdk.setConfig({ background_color: value })
+            },
+            {
+              get: () => config.surface_color || defaultConfig.surface_color,
+              set: (value) => window.elementSdk.setConfig({ surface_color: value })
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => window.elementSdk.setConfig({ text_color: value })
+            },
+            {
+              get: () => config.accent_color || defaultConfig.accent_color,
+              set: (value) => window.elementSdk.setConfig({ accent_color: value })
+            },
+            {
+              get: () => config.secondary_color || defaultConfig.secondary_color,
+              set: (value) => window.elementSdk.setConfig({ secondary_color: value })
+            }
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || 'Cormorant Garamond',
+            set: (value) => window.elementSdk.setConfig({ font_family: value })
+          },
+          fontSizeable: {
+            get: () => config.font_size || 16,
+            set: (value) => window.elementSdk.setConfig({ font_size: value })
+          }
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ['hero_title', config.hero_title || defaultConfig.hero_title],
+          ['hero_subtitle', config.hero_subtitle || defaultConfig.hero_subtitle],
+          ['featured_title', config.featured_title || defaultConfig.featured_title],
+          ['featured_description', config.featured_description || defaultConfig.featured_description],
+          ['author_quote', config.author_quote || defaultConfig.author_quote],
+          ['newsletter_text', config.newsletter_text || defaultConfig.newsletter_text]
+        ])
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d90a829838768c7',t:'MTc3Mjk2MDUwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
