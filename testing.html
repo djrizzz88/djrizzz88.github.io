@@ -1,185 +1,673 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Rizwan Studio</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rizwan Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #d97706;
+      --accent-dark: #b45309;
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --bg-soft: #f8fafc;
+    }
 
-<style>
-body{font-family:Inter, sans-serif;background:#ffffff;color:#111;overflow-x:hidden}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+      background: #fff;
+      overflow-x: hidden;
+    }
 
-/* smooth scroll */
-html{scroll-behavior:smooth}
+    .site-shell {
+      background:
+        radial-gradient(circle at top right, rgba(217,119,6,0.08), transparent 28%),
+        radial-gradient(circle at top left, rgba(17,24,39,0.03), transparent 24%),
+        linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+    }
 
-/* animated gradient */
-.gradient-bg{
-background:linear-gradient(270deg,#fff,#f9fafb,#fff);
-background-size:400% 400%;
-animation:gradientMove 10s ease infinite;
-}
-@keyframes gradientMove{0%{background-position:0%}50%{background-position:100%}100%{background-position:0%}}
+    .hero-bg {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.92), rgba(249,250,251,0.96)),
+        radial-gradient(circle at 80% 20%, rgba(217,119,6,0.13), transparent 25%),
+        radial-gradient(circle at 15% 15%, rgba(17,24,39,0.05), transparent 22%);
+      background-size: 100% 100%, 100% 100%, 100% 100%;
+    }
 
-/* floating effect */
-.float{animation:float 4s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    .glass {
+      background: rgba(255,255,255,0.76);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: 0 10px 35px rgba(17,24,39,0.06);
+    }
 
-/* hover card */
-.card{background:white;border:1px solid #eee;border-radius:16px;transition:0.4s}
-.card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 20px 60px rgba(0,0,0,0.1)}
+    .soft-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(17,24,39,0.05);
+      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+    .soft-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 60px rgba(17,24,39,0.10);
+      border-color: rgba(217,119,6,0.25);
+    }
 
-/* button */
-.btn{background:#d97706;color:#fff;transition:0.3s}
-.btn:hover{background:#b45309;transform:scale(1.05)}
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #f59e0b);
+      color: white;
+      box-shadow: 0 12px 30px rgba(217,119,6,0.22);
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(217,119,6,0.28);
+      background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+    }
 
-/* reveal */
-.reveal{opacity:0;transform:translateY(40px);transition:1s}
-.reveal.active{opacity:1;transform:translateY(0)}
+    .btn-secondary {
+      border: 1px solid #d1d5db;
+      background: rgba(255,255,255,0.8);
+      transition: transform .25s ease, border-color .25s ease, background .25s ease;
+    }
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      border-color: rgba(217,119,6,0.35);
+      background: #fff;
+    }
 
-/* sticky call */
-.call-bar{position:fixed;bottom:20px;right:20px;z-index:999}
+    .hero-visual {
+      position: relative;
+      min-height: 460px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: 0 25px 70px rgba(17,24,39,0.12);
+      background:
+        linear-gradient(140deg, rgba(255,255,255,0.9), rgba(249,250,251,0.78)),
+        url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80') center/cover;
+    }
 
-</style>
+    .floaty {
+      animation: floaty 5s ease-in-out infinite;
+    }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stat-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      inset: auto -20% -50% auto;
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      background: rgba(217,119,6,0.08);
+      filter: blur(4px);
+    }
+
+    .work-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 36px rgba(17,24,39,0.07);
+      transition: transform .45s ease, box-shadow .45s ease;
+    }
+    .work-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 60px rgba(17,24,39,0.12);
+    }
+    .work-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .55s ease;
+    }
+    .work-card:hover img { transform: scale(1.06); }
+    .work-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(17,24,39,0.02), rgba(17,24,39,0.72));
+      display: flex;
+      align-items: flex-end;
+      padding: 24px;
+      color: white;
+    }
+
+    .review-slide {
+      display: none;
+      animation: fadeIn .45s ease;
+    }
+    .review-slide.active { display: block; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ba-wrap {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      overflow: hidden;
+      border-radius: 26px;
+      box-shadow: 0 18px 46px rgba(17,24,39,0.12);
+      border: 1px solid var(--line);
+      user-select: none;
+      background: #f3f4f6;
+    }
+    .ba-wrap img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+    .ba-after {
+      clip-path: inset(0 0 0 50%);
+    }
+    .ba-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 2px;
+      background: white;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.04);
+      transform: translateX(-1px);
+      pointer-events: none;
+    }
+    .ba-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 58px;
+      height: 58px;
+      border-radius: 999px;
+      background: white;
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 10px 25px rgba(17,24,39,0.18);
+      font-weight: 800;
+      pointer-events: none;
+    }
+    .ba-label {
+      position: absolute;
+      top: 18px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.86);
+      backdrop-filter: blur(8px);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 20px rgba(17,24,39,0.08);
+    }
+
+    .call-fab {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 60;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), #f59e0b);
+      color: white;
+      box-shadow: 0 18px 36px rgba(217,119,6,0.30);
+    }
+
+    .nav-link { position: relative; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: -8px;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform .25s ease;
+    }
+    .nav-link:hover::after { transform: scaleX(1); }
+
+    .section-title {
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+
+    @media (max-width: 768px) {
+      .hero-visual { min-height: 320px; }
+      .ba-wrap { height: 280px; }
+      .call-fab span { display: none; }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="site-shell min-h-screen">
+    <header class="fixed top-0 inset-x-0 z-50 bg-white/75 backdrop-blur-xl border-b border-gray-200/80">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="h-20 flex items-center justify-between">
+          <a href="#" class="text-xl md:text-2xl font-bold tracking-tight">Rizwan Studio</a>
+          <nav class="hidden md:flex items-center gap-8 text-sm text-gray-700">
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#work" class="nav-link">Work</a>
+            <a href="#process" class="nav-link">Process</a>
+            <a href="#reviews" class="nav-link">Reviews</a>
+            <a href="#contact" class="nav-link">Contact</a>
+          </nav>
+          <a href="#contact" class="btn-primary px-5 py-2.5 rounded-full text-sm font-semibold">Get Quote</a>
+        </div>
+      </div>
+    </header>
 
-<!-- NAV -->
-<header class="fixed top-0 w-full bg-white/80 backdrop-blur z-50 border-b">
-<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
-<h1 class="font-bold text-xl">Rizwan Studio</h1>
-<nav class="hidden md:flex gap-8">
-<a href="#services">Services</a>
-<a href="#work">Work</a>
-<a href="#process">Process</a>
-<a href="#contact">Contact</a>
-</nav>
-<a href="#contact" class="btn px-5 py-2 rounded-full text-sm">Get Quote</a>
-</div>
-</header>
+    <section class="hero-bg pt-32 md:pt-36 pb-20 md:pb-24">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <div class="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-white/80 px-4 py-2 text-[11px] font-semibold tracking-[0.22em] uppercase text-gray-600">
+            Premium Service Website
+          </div>
+          <h1 class="section-title mt-7 text-5xl md:text-7xl font-extrabold text-gray-900">
+            Modern design with
+            <span class="text-amber-600">real presence.</span>
+          </h1>
+          <p class="mt-6 max-w-2xl text-base md:text-lg leading-8 text-gray-600">
+            A high-end business website with strong visual hierarchy, smooth motion, premium UI patterns, and a conversion-focused structure inspired by top-tier UK service brands.
+          </p>
+          <div class="mt-9 flex flex-col sm:flex-row gap-4">
+            <a href="#contact" class="btn-primary px-7 py-4 rounded-full text-sm font-semibold text-center">Start Project</a>
+            <a href="#work" class="btn-secondary px-7 py-4 rounded-full text-sm font-semibold text-center">View Showcase</a>
+          </div>
+        </div>
 
-<!-- HERO -->
-<section class="gradient-bg pt-32 pb-24">
-<div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+        <div class="reveal floaty">
+          <div class="hero-visual">
+            <div class="absolute inset-0 bg-gradient-to-tr from-white/40 via-transparent to-amber-100/40"></div>
+            <div class="absolute top-6 right-6 glass rounded-2xl p-4 md:p-5 max-w-[220px]">
+              <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Performance</div>
+              <div class="mt-2 text-2xl font-bold">Fast, clean, premium</div>
+            </div>
+            <div class="absolute left-6 bottom-6 glass rounded-2xl p-4 md:p-5 max-w-[260px]">
+              <div class="text-xs uppercase tracking-[0.18em] text-gray-500">Built for trust</div>
+              <div class="mt-2 text-sm md:text-base text-gray-700">Modern interface systems with polished design and high-conversion flow.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="reveal">
-<h2 class="text-6xl font-extrabold leading-tight">
-Luxury Digital<br><span class="text-amber-600">Experience</span>
-</h2>
-<p class="mt-6 text-gray-600">High-converting, modern websites with premium animations and smooth UX.</p>
-<div class="mt-8 flex gap-4">
-<a href="#contact" class="btn px-6 py-3 rounded-full">Start Project</a>
-<a href="#work" class="border px-6 py-3 rounded-full">View Work</a>
-</div>
-</div>
+    <section class="py-8 md:py-10 -mt-8 md:-mt-10 relative z-10">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="glass rounded-[28px] p-5 md:p-6">
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="stat-card soft-card rounded-2xl p-5 text-center">
+              <div class="counter text-3xl font-extrabold" data-target="120">0</div>
+              <div class="mt-1 text-sm text-gray-500">Projects Completed</div>
+            </div>
+            <div class="stat-card soft-card rounded-2xl p-5 text-center">
+              <div class="counter text-3xl font-extrabold" data-target="50">0</div>
+              <div class="mt-1 text-sm text-gray-500">Happy Clients</div>
+            </div>
+            <div class="stat-card soft-card rounded-2xl p-5 text-center">
+              <div class="counter text-3xl font-extrabold" data-target="5">0</div>
+              <div class="mt-1 text-sm text-gray-500">Years Experience</div>
+            </div>
+            <div class="stat-card soft-card rounded-2xl p-5 text-center">
+              <div class="counter text-3xl font-extrabold" data-target="100">0</div>
+              <div class="mt-1 text-sm text-gray-500">Client Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="float reveal">
-<div class="h-96 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-Premium Visual
-</div>
-</div>
+    <main>
+      <section id="services" class="py-24 md:py-28">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="max-w-2xl reveal">
+            <div class="text-sm uppercase tracking-[0.22em] text-amber-600 font-semibold">Services</div>
+            <h2 class="section-title mt-4 text-4xl md:text-6xl font-extrabold">Premium sections built to feel custom, modern, and credible.</h2>
+          </div>
+          <div class="mt-14 grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <article class="soft-card rounded-3xl p-7 reveal">
+              <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 grid place-items-center font-bold">01</div>
+              <h3 class="mt-5 text-xl font-bold">Design Systems</h3>
+              <p class="mt-3 text-gray-600 leading-7">Clear hierarchy, luxury spacing, premium typography, and modern layout structure tailored for trust and conversion.</p>
+            </article>
+            <article class="soft-card rounded-3xl p-7 reveal">
+              <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 grid place-items-center font-bold">02</div>
+              <h3 class="mt-5 text-xl font-bold">Responsive Development</h3>
+              <p class="mt-3 text-gray-600 leading-7">Fast, scalable HTML structure with cleaner interactions, smooth responsiveness, and better user flow across devices.</p>
+            </article>
+            <article class="soft-card rounded-3xl p-7 reveal">
+              <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 grid place-items-center font-bold">03</div>
+              <h3 class="mt-5 text-xl font-bold">SEO Structure</h3>
+              <p class="mt-3 text-gray-600 leading-7">Improved page flow, content hierarchy, and technical structure that supports organic visibility and stronger discoverability.</p>
+            </article>
+            <article class="soft-card rounded-3xl p-7 reveal">
+              <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 grid place-items-center font-bold">04</div>
+              <h3 class="mt-5 text-xl font-bold">Conversion UI</h3>
+              <p class="mt-3 text-gray-600 leading-7">Trust-building sections, sticky calls-to-action, proof elements, and contact flows designed to turn visitors into leads.</p>
+            </article>
+            <article class="soft-card rounded-3xl p-7 reveal">
+              <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 grid place-items-center font-bold">05</div>
+              <h3 class="mt-5 text-xl font-bold">Showcase Layouts</h3>
+              <p class="mt-3 text-gray-600 leading-7">Elegant gallery sections, portfolio cards, before/after modules, and polished media placements for stronger presentation.</p>
+            </article>
+            <article class="soft-card rounded-3xl p-7 reveal">
+              <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 grid place-items-center font-bold">06</div>
+              <h3 class="mt-5 text-xl font-bold">Ongoing Refinement</h3>
+              <p class="mt-3 text-gray-600 leading-7">Continuous polishing, content updates, and design improvements that keep the site feeling fresh and premium over time.</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-</div>
-</section>
+      <section id="work" class="py-24 md:py-28 bg-[var(--bg-soft)]">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 reveal">
+            <div class="max-w-2xl">
+              <div class="text-sm uppercase tracking-[0.22em] text-amber-600 font-semibold">Showcase</div>
+              <h2 class="section-title mt-4 text-4xl md:text-6xl font-extrabold">A more premium presentation of your work.</h2>
+            </div>
+            <p class="max-w-xl text-gray-600 leading-7">Replace these demo visuals with real projects, service images, or screenshots to make the website feel far more credible and client-ready.</p>
+          </div>
 
-<!-- STATS COUNTER -->
-<section class="py-16 bg-white">
-<div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 text-center gap-6">
-<div><h3 class="text-3xl font-bold counter" data-target="120">0</h3><p>Projects</p></div>
-<div><h3 class="text-3xl font-bold counter" data-target="50">0</h3><p>Clients</p></div>
-<div><h3 class="text-3xl font-bold counter" data-target="5">0</h3><p>Years</p></div>
-<div><h3 class="text-3xl font-bold counter" data-target="100">0</h3><p>Satisfaction</p></div>
-</div>
-</section>
+          <div class="mt-14 grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <article class="work-card reveal">
+              <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80" alt="project one">
+              <div class="work-overlay">
+                <div>
+                  <h3 class="text-2xl font-bold">Project One</h3>
+                  <p class="mt-2 text-white/80 text-sm">High-conversion service landing page</p>
+                </div>
+              </div>
+            </article>
+            <article class="work-card reveal">
+              <img src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80" alt="project two">
+              <div class="work-overlay">
+                <div>
+                  <h3 class="text-2xl font-bold">Project Two</h3>
+                  <p class="mt-2 text-white/80 text-sm">Premium brand presentation concept</p>
+                </div>
+              </div>
+            </article>
+            <article class="work-card reveal md:col-span-2 xl:col-span-1">
+              <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="project three">
+              <div class="work-overlay">
+                <div>
+                  <h3 class="text-2xl font-bold">Project Three</h3>
+                  <p class="mt-2 text-white/80 text-sm">Clean modern UI experience</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
-<!-- SERVICES -->
-<section id="services" class="py-24">
-<div class="max-w-7xl mx-auto px-6">
-<h3 class="text-4xl font-bold text-center">Services</h3>
-<div class="mt-12 grid md:grid-cols-3 gap-6">
-<div class="card p-6 reveal">Design</div>
-<div class="card p-6 reveal">Development</div>
-<div class="card p-6 reveal">SEO</div>
-</div>
-</div>
-</section>
+      <section class="py-24 md:py-28">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8 reveal">
+          <div class="text-center mb-10">
+            <div class="text-sm uppercase tracking-[0.22em] text-amber-600 font-semibold">Before / After</div>
+            <h2 class="section-title mt-4 text-4xl md:text-6xl font-extrabold">Interactive comparison section.</h2>
+          </div>
 
-<!-- BEFORE AFTER -->
-<section class="py-24 bg-gray-50">
-<div class="max-w-5xl mx-auto px-6">
-<h3 class="text-4xl font-bold text-center">Before / After</h3>
-<div class="mt-10 relative h-80 overflow-hidden rounded-xl">
-<img src="https://via.placeholder.com/800x400" class="absolute w-full h-full object-cover">
-<div id="slider" class="absolute top-0 left-0 h-full bg-white/50" style="width:50%"></div>
-</div>
-</div>
-</section>
+          <div class="ba-wrap" id="beforeAfter">
+            <img src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&w=1400&q=80" alt="before image" class="ba-before">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=80" alt="after image" class="ba-after" id="afterImage">
+            <div class="ba-label left-4">Before</div>
+            <div class="ba-label right-4">After</div>
+            <div class="ba-line" id="baLine"></div>
+            <div class="ba-handle" id="baHandle">↔</div>
+          </div>
+        </div>
+      </section>
 
-<!-- REVIEWS CAROUSEL -->
-<section class="py-24">
-<div class="max-w-4xl mx-auto text-center">
-<h3 class="text-4xl font-bold">Reviews</h3>
-<div id="carousel" class="mt-10">
-<p class="review">Amazing work 🔥</p>
-<p class="review hidden">Top quality design</p>
-<p class="review hidden">Highly recommended</p>
-</div>
-</div>
-</section>
+      <section id="process" class="py-24 md:py-28 bg-[var(--bg-soft)]">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="max-w-2xl reveal">
+            <div class="text-sm uppercase tracking-[0.22em] text-amber-600 font-semibold">Process</div>
+            <h2 class="section-title mt-4 text-4xl md:text-6xl font-extrabold">A smoother path from concept to launch.</h2>
+          </div>
+          <div class="mt-14 grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+            <div class="soft-card rounded-3xl p-7 reveal">
+              <div class="text-amber-600 text-sm font-bold tracking-[0.2em]">01</div>
+              <h3 class="mt-5 text-xl font-bold">Discover</h3>
+              <p class="mt-3 text-gray-600 leading-7">Clarify business goals, target audience, and the exact message the website should communicate.</p>
+            </div>
+            <div class="soft-card rounded-3xl p-7 reveal">
+              <div class="text-amber-600 text-sm font-bold tracking-[0.2em]">02</div>
+              <h3 class="mt-5 text-xl font-bold">Plan</h3>
+              <p class="mt-3 text-gray-600 leading-7">Define page structure, user journey, sections, and content hierarchy before development begins.</p>
+            </div>
+            <div class="soft-card rounded-3xl p-7 reveal">
+              <div class="text-amber-600 text-sm font-bold tracking-[0.2em]">03</div>
+              <h3 class="mt-5 text-xl font-bold">Build</h3>
+              <p class="mt-3 text-gray-600 leading-7">Create a polished responsive website with smoother motion, stronger sections, and more premium visual depth.</p>
+            </div>
+            <div class="soft-card rounded-3xl p-7 reveal">
+              <div class="text-amber-600 text-sm font-bold tracking-[0.2em]">04</div>
+              <h3 class="mt-5 text-xl font-bold">Deliver</h3>
+              <p class="mt-3 text-gray-600 leading-7">Refine details, test usability, optimise key pages, and prepare the final site for launch and lead generation.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<!-- CONTACT -->
-<section id="contact" class="py-24 bg-gray-100">
-<div class="max-w-4xl mx-auto px-6">
-<h3 class="text-3xl font-bold text-center">Contact</h3>
-<form class="mt-10 space-y-4">
-<input class="w-full p-3 rounded" placeholder="Name">
-<input class="w-full p-3 rounded" placeholder="Email">
-<textarea class="w-full p-3 rounded" placeholder="Message"></textarea>
-<button class="btn w-full py-3 rounded">Send</button>
-</form>
-</div>
-</section>
+      <section id="reviews" class="py-24 md:py-28">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8">
+          <div class="text-center reveal">
+            <div class="text-sm uppercase tracking-[0.22em] text-amber-600 font-semibold">Testimonials</div>
+            <h2 class="section-title mt-4 text-4xl md:text-6xl font-extrabold">Rotating review section with cleaner motion.</h2>
+          </div>
 
-<!-- FLOAT BUTTON -->
-<div class="call-bar">
-<a class="btn px-5 py-3 rounded-full">Call Now</a>
-</div>
+          <div class="mt-12 soft-card rounded-[28px] p-8 md:p-12 reveal">
+            <div class="review-slide active text-center" data-review>
+              <div class="text-amber-600 text-lg">★★★★★</div>
+              <p class="mt-5 text-xl md:text-2xl leading-9 text-gray-800">“The site feels much more premium now. Strong structure, better movement, and a far more polished first impression.”</p>
+              <div class="mt-6 text-sm text-gray-500">Client Name · Director</div>
+            </div>
+            <div class="review-slide text-center" data-review>
+              <div class="text-amber-600 text-lg">★★★★★</div>
+              <p class="mt-5 text-xl md:text-2xl leading-9 text-gray-800">“Exactly the kind of modern business presentation we wanted. It looks custom rather than template-based.”</p>
+              <div class="mt-6 text-sm text-gray-500">Client Name · Founder</div>
+            </div>
+            <div class="review-slide text-center" data-review>
+              <div class="text-amber-600 text-lg">★★★★★</div>
+              <p class="mt-5 text-xl md:text-2xl leading-9 text-gray-800">“The design is cleaner, sharper, and much more trustworthy. It feels aligned with high-end UK service brands.”</p>
+              <div class="mt-6 text-sm text-gray-500">Client Name · Manager</div>
+            </div>
 
-<script>
+            <div class="mt-8 flex items-center justify-center gap-2">
+              <button class="w-3 h-3 rounded-full bg-amber-500" data-dot="0"></button>
+              <button class="w-3 h-3 rounded-full bg-gray-300" data-dot="1"></button>
+              <button class="w-3 h-3 rounded-full bg-gray-300" data-dot="2"></button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-// reveal
-const reveals=document.querySelectorAll('.reveal')
-window.addEventListener('scroll',()=>{
-reveals.forEach(el=>{
-const top=el.getBoundingClientRect().top
-if(top<window.innerHeight-100) el.classList.add('active')
-})
-})
+      <section class="py-24 md:py-28">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8 reveal">
+          <div class="rounded-[32px] overflow-hidden border border-amber-200 bg-gradient-to-r from-gray-900 via-gray-800 to-amber-900 text-white px-8 md:px-14 py-14 md:py-16 text-center shadow-[0_24px_70px_rgba(17,24,39,0.18)]">
+            <div class="text-sm uppercase tracking-[0.22em] text-amber-200 font-semibold">Ready</div>
+            <h2 class="section-title mt-4 text-4xl md:text-6xl font-extrabold">Let’s build something exceptional.</h2>
+            <p class="mt-5 max-w-2xl mx-auto text-white/75 leading-8">Use this CTA section to capture leads with stronger visual weight and a more convincing premium presentation.</p>
+            <a href="#contact" class="inline-flex mt-9 btn-primary px-8 py-4 rounded-full text-sm font-semibold">Request a Quote</a>
+          </div>
+        </div>
+      </section>
 
-// counter
-const counters=document.querySelectorAll('.counter')
-counters.forEach(counter=>{
-const update=()=>{
-const target=+counter.getAttribute('data-target')
-const c=+counter.innerText
-const inc=target/50
-if(c<target){counter.innerText=Math.ceil(c+inc);setTimeout(update,30)}
-else{counter.innerText=target}
-}
-update()
-})
+      <section id="contact" class="py-24 md:py-28 bg-[var(--bg-soft)]">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-start">
+          <div class="reveal">
+            <div class="text-sm uppercase tracking-[0.22em] text-amber-600 font-semibold">Contact</div>
+            <h2 class="section-title mt-4 text-4xl md:text-6xl font-extrabold">Tell me about your next project.</h2>
+            <p class="mt-6 text-gray-600 leading-8 max-w-xl">This section is structured to feel more premium and credible while still keeping the form simple, direct, and conversion-friendly.</p>
+            <div class="mt-8 space-y-4 text-gray-700">
+              <p>Email: hello@rizwanstudio.com</p>
+              <p>Phone: +44 0000 000000</p>
+              <p>Location: United Kingdom</p>
+            </div>
+          </div>
 
-// carousel
-let i=0
-setInterval(()=>{
-const reviews=document.querySelectorAll('.review')
-reviews.forEach(r=>r.classList.add('hidden'))
-reviews[i].classList.remove('hidden')
-i=(i+1)%reviews.length
-},2000)
+          <form class="soft-card rounded-[28px] p-6 md:p-8 space-y-5 reveal">
+            <div>
+              <label class="block text-sm font-medium text-gray-600 mb-2">Full Name</label>
+              <input type="text" placeholder="Your name" class="w-full rounded-2xl border border-gray-200 px-4 py-3.5 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600 mb-2">Email Address</label>
+              <input type="email" placeholder="you@example.com" class="w-full rounded-2xl border border-gray-200 px-4 py-3.5 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600 mb-2">Project Type</label>
+              <input type="text" placeholder="Website, redesign, landing page..." class="w-full rounded-2xl border border-gray-200 px-4 py-3.5 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-600 mb-2">Message</label>
+              <textarea rows="5" placeholder="Tell me about your project" class="w-full rounded-2xl border border-gray-200 px-4 py-3.5 outline-none focus:border-amber-400 focus:ring-2 focus:ring-amber-100 transition"></textarea>
+            </div>
+            <button type="submit" class="w-full btn-primary py-4 rounded-full text-sm font-semibold">Send Inquiry</button>
+          </form>
+        </div>
+      </section>
+    </main>
 
-</script>
+    <footer class="border-t border-gray-200 bg-white">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-8 flex flex-col md:flex-row gap-4 items-center justify-between text-sm text-gray-500">
+        <p>© 2026 Rizwan Studio. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-gray-900">LinkedIn</a>
+          <a href="#" class="hover:text-gray-900">Instagram</a>
+          <a href="#" class="hover:text-gray-900">Behance</a>
+        </div>
+      </div>
+    </footer>
+  </div>
 
+  <a href="#contact" class="call-fab" aria-label="Call now">
+    <span>Call Now</span>
+    <strong>→</strong>
+  </a>
+
+  <script>
+    // Reveal on scroll + initial pass
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // Animated counters only when visible
+    const counters = document.querySelectorAll('.counter');
+    const started = new WeakSet();
+    const runCounter = (counter) => {
+      if (started.has(counter)) return;
+      started.add(counter);
+      const target = +counter.dataset.target;
+      let current = 0;
+      const duration = 1200;
+      const startTime = performance.now();
+      const step = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const value = Math.ceil(progress * target);
+        counter.textContent = value;
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    };
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) runCounter(entry.target);
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(counter => counterObserver.observe(counter));
+
+    // Reviews carousel
+    const reviewSlides = document.querySelectorAll('[data-review]');
+    const dots = document.querySelectorAll('[data-dot]');
+    let reviewIndex = 0;
+    const showReview = (index) => {
+      reviewSlides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('bg-amber-500', i === index);
+        dot.classList.toggle('bg-gray-300', i !== index);
+      });
+      reviewIndex = index;
+    };
+    dots.forEach((dot, i) => dot.addEventListener('click', () => showReview(i)));
+    setInterval(() => showReview((reviewIndex + 1) % reviewSlides.length), 3500);
+
+    // Before / after slider
+    const beforeAfter = document.getElementById('beforeAfter');
+    const afterImage = document.getElementById('afterImage');
+    const baLine = document.getElementById('baLine');
+    const baHandle = document.getElementById('baHandle');
+    let dragging = false;
+
+    const setSlider = (x) => {
+      const rect = beforeAfter.getBoundingClientRect();
+      const pos = Math.min(Math.max(x - rect.left, 0), rect.width);
+      const percent = (pos / rect.width) * 100;
+      afterImage.style.clipPath = `inset(0 0 0 ${percent}%)`;
+      baLine.style.left = `${percent}%`;
+      baHandle.style.left = `${percent}%`;
+    };
+
+    const startDrag = (clientX) => { dragging = true; setSlider(clientX); };
+    const moveDrag = (clientX) => { if (dragging) setSlider(clientX); };
+    const endDrag = () => { dragging = false; };
+
+    beforeAfter.addEventListener('mousedown', (e) => startDrag(e.clientX));
+    window.addEventListener('mousemove', (e) => moveDrag(e.clientX));
+    window.addEventListener('mouseup', endDrag);
+
+    beforeAfter.addEventListener('touchstart', (e) => startDrag(e.touches[0].clientX), { passive: true });
+    window.addEventListener('touchmove', (e) => moveDrag(e.touches[0].clientX), { passive: true });
+    window.addEventListener('touchend', endDrag);
+
+    // Ensure initial state is applied
+    setTimeout(() => {
+      showReview(0);
+      const rect = beforeAfter.getBoundingClientRect();
+      setSlider(rect.left + rect.width / 2);
+    }, 100);
+  </script>
 </body>
 </html>
