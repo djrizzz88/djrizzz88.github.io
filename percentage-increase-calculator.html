@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Percentage Increase Calculator – Free & Accurate Online Tool</title>
+  <meta name="description" content="Use this free percentage increase calculator to quickly calculate percentage increase between two numbers. Includes formula, examples, and step-by-step explanation." />
+  <meta name="keywords" content="percentage increase calculator, how to calculate percentage increase, percentage increase formula, calculate percent change, percentage difference calculator" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://rizwanali.uk/percentage-increase-calculator.html" />
+
+  <meta property="og:title" content="Percentage Increase Calculator – Free & Accurate Online Tool" />
+  <meta property="og:description" content="Calculate percentage increase between two numbers instantly. Free online tool with formula, examples, and explanation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rizwanali.uk/percentage-increase-calculator.html" />
+
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --border: #dbe3ee;
+      --success: #0f9d58;
+      --warning: #b45309;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 24px 16px 60px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #eff6ff, #ffffff);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 24px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.25;
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+      margin-top: 32px;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .lead {
+      font-size: 1.02rem;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+      margin-bottom: 24px;
+    }
+
+    .calculator-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .field label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 14px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .field input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      border-radius: 12px;
+      padding: 13px 18px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background: #eef2f7;
+      color: var(--text);
+    }
+
+    .result-box {
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 14px;
+      background: #f8fbff;
+      border: 1px solid #dbeafe;
+    }
+
+    .result-main {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--success);
+      margin-bottom: 8px;
+    }
+
+    .result-sub {
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .formula {
+      background: #f8fafc;
+      border: 1px dashed var(--border);
+      padding: 14px;
+      border-radius: 12px;
+      overflow-x: auto;
+      font-family: "Courier New", monospace;
+      font-size: 0.98rem;
+    }
+
+    .example-list,
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .example-item,
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+      background: #fff;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .note {
+      color: var(--warning);
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    .breadcrumbs {
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+      color: var(--muted);
+    }
+
+    .breadcrumbs a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background: #f8fafc;
+    }
+
+    .ad-placeholder {
+      margin: 24px 0;
+      padding: 18px;
+      text-align: center;
+      border: 1px dashed var(--border);
+      border-radius: 14px;
+      color: var(--muted);
+      background: #fff;
+    }
+
+    footer {
+      margin-top: 36px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 700px) {
+      .calculator-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 1.65rem;
+      }
+
+      .result-main {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"How do you calculate percentage increase?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Subtract the original value from the new value, divide the result by the original value, and multiply by 100."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"What is the formula for percentage increase?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Percentage Increase = ((New Value - Original Value) / Original Value) × 100"
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"What is the difference between percentage increase and percentage difference?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Percentage increase measures how much a value has gone up relative to its original value, while percentage difference compares two values without focusing on growth from a starting point."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="breadcrumbs">
+      <a href="/">Home</a> / <span>Percentage Increase Calculator</span>
+    </div>
+
+    <section class="hero">
+      <h1>Percentage Increase Calculator</h1>
+      <p class="lead">
+        Use this free percentage increase calculator to work out the percentage increase between two numbers.
+        It is fast, accurate, and useful for prices, salaries, profit, marks, sales growth, and general maths calculations.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Calculate Percentage Increase</h2>
+
+      <div class="calculator-grid">
+        <div class="field">
+          <label for="originalValue">Original Value</label>
+          <input type="number" id="originalValue" placeholder="e.g. 100" step="any" />
+        </div>
+
+        <div class="field">
+          <label for="newValue">New Value</label>
+          <input type="number" id="newValue" placeholder="e.g. 125" step="any" />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn-primary" onclick="calculateIncrease()">Calculate</button>
+        <button class="btn-secondary" onclick="resetCalculator()">Reset</button>
+      </div>
+
+      <div class="result-box" id="resultBox" style="display:none;">
+        <div class="result-main" id="resultMain"></div>
+        <div class="result-sub" id="resultSub"></div>
+        <div id="resultSteps"></div>
+      </div>
+
+      <p class="note" id="errorMessage" style="display:none;"></p>
+    </section>
+
+    <div class="ad-placeholder">
+      Ad Space / AdSense Placeholder
+    </div>
+
+    <section class="card">
+      <h2>How to Calculate Percentage Increase</h2>
+      <p>
+        To calculate percentage increase, subtract the original value from the new value, then divide that difference by the original value, and multiply by 100.
+      </p>
+
+      <div class="formula">
+        Percentage Increase = ((New Value - Original Value) / Original Value) × 100
+      </div>
+
+      <p style="margin-top:14px;">
+        This formula is useful when you want to calculate percentage increase in price, salary, revenue, marks, or any other value.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Worked Example</h2>
+      <p>
+        Suppose a product price increases from <strong>100</strong> to <strong>125</strong>.
+      </p>
+
+      <div class="formula">
+        Difference = 125 - 100 = 25<br />
+        Percentage Increase = (25 / 100) × 100 = 25%
+      </div>
+
+      <p style="margin-top:14px;">
+        So, the percentage increase is <strong>25%</strong>.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Percentage Increase vs Percentage Difference</h2>
+      <p>
+        Many people search for both <strong>percentage increase calculator</strong> and <strong>percentage difference calculator</strong>, but they are not always the same thing.
+      </p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Concept</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Percentage Increase</td>
+              <td>Shows how much a value has increased compared to the original value.</td>
+            </tr>
+            <tr>
+              <td>Percentage Difference</td>
+              <td>Compares two values to show how different they are, usually without focusing on growth from a starting point.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Common Uses of a Percentage Increase Calculator</h2>
+      <div class="example-list">
+        <div class="example-item">
+          <h3>Salary Increase</h3>
+          <p class="muted">Work out the increment percentage from an old salary to a new salary.</p>
+        </div>
+        <div class="example-item">
+          <h3>Price Increase</h3>
+          <p class="muted">Calculate percentage increase in price for products, rent, or services.</p>
+        </div>
+        <div class="example-item">
+          <h3>Business Growth</h3>
+          <p class="muted">Measure percentage growth in sales, profit, revenue, or website traffic.</p>
+        </div>
+        <div class="example-item">
+          <h3>Academic Scores</h3>
+          <p class="muted">Compare marks or grades to see how much performance improved.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3>How do I calculate percentage increase between two numbers?</h3>
+          <p>Subtract the original number from the new number, divide by the original number, and multiply by 100.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What is the percentage increase formula?</h3>
+          <p><strong>((New Value - Original Value) / Original Value) × 100</strong></p>
+        </div>
+        <div class="faq-item">
+          <h3>Can this calculator work out percentage decrease too?</h3>
+          <p>This page is focused on increase, but the same method can also show when a value has gone down. You can later create a separate percentage decrease calculator page.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What happens if the original value is zero?</h3>
+          <p>You cannot divide by zero, so percentage increase cannot be calculated from an original value of zero using the standard formula.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        This free online percentage increase calculator is designed for quick and accurate calculations.
+        You can use it for finance, salary increases, business growth, shopping discounts, and education.
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    function formatNumber(value) {
+      return Number(value).toLocaleString(undefined, {
+        maximumFractionDigits: 2
+      });
+    }
+
+    function calculateIncrease() {
+      const original = parseFloat(document.getElementById("originalValue").value);
+      const newer = parseFloat(document.getElementById("newValue").value);
+
+      const resultBox = document.getElementById("resultBox");
+      const resultMain = document.getElementById("resultMain");
+      const resultSub = document.getElementById("resultSub");
+      const resultSteps = document.getElementById("resultSteps");
+      const errorMessage = document.getElementById("errorMessage");
+
+      errorMessage.style.display = "none";
+      resultBox.style.display = "none";
+
+      if (isNaN(original) || isNaN(newer)) {
+        errorMessage.textContent = "Please enter both values.";
+        errorMessage.style.display = "block";
+        return;
+      }
+
+      if (original === 0) {
+        errorMessage.textContent = "Original value cannot be 0 for percentage increase calculation.";
+        errorMessage.style.display = "block";
+        return;
+      }
+
+      const difference = newer - original;
+      const percentage = (difference / original) * 100;
+
+      let label = "increase";
+      let color = "#0f9d58";
+
+      if (percentage < 0) {
+        label = "decrease";
+        color = "#dc2626";
+      } else if (percentage === 0) {
+        label = "change";
+        color = "#1d4ed8";
+      }
+
+      resultMain.textContent = `${percentage.toFixed(2)}% ${label}`;
+      resultMain.style.color = color;
+
+      resultSub.textContent = `Original value: ${formatNumber(original)} | New value: ${formatNumber(newer)} | Difference: ${formatNumber(difference)}`;
+
+      resultSteps.innerHTML = `
+        <div class="formula">
+Difference = New Value - Original Value
+Difference = ${newer} - ${original} = ${difference}
+
+Percentage ${label} = (Difference / Original Value) × 100
+Percentage ${label} = (${difference} / ${original}) × 100
+Percentage ${label} = ${percentage.toFixed(2)}%
+        </div>
+      `;
+
+      resultBox.style.display = "block";
+    }
+
+    function resetCalculator() {
+      document.getElementById("originalValue").value = "";
+      document.getElementById("newValue").value = "";
+      document.getElementById("resultBox").style.display = "none";
+      document.getElementById("errorMessage").style.display = "none";
+    }
+  </script>
+</body>
+</html>
